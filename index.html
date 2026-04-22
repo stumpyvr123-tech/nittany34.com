@@ -51,7 +51,20 @@
 
     <a href="documenting.html" class="button-link">Coding Journey</a>
 
+    <a href="system-admin-database.html" class="button-link">System Admin Database</a>
+
+    <div id="secret-buttons" style="display: none;">
+        <a href="https://studio.youtube.com/channel/UCzsCIZWrlOLTJLQwzMOsB8w" target="_blank" class="button-link">YouTube Studio</a>
+        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZWPmRVRVcHnWLzXCZZhmMPXXQmjBsvMWsqJxZhKSFLjTvbsgqvlGXDxzwlszGZgWMsQjB" target="_blank" class="button-link">Email Dev</a>
+    </div>
+
     <footer>developed by nittany34</footer>
+
+    <script>
+        if (sessionStorage.getItem('secretAccessed') === 'true') {
+            document.getElementById('secret-buttons').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>

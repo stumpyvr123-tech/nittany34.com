@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Admin Database</title>
+    <link rel="icon" href="Untitled Project.jpg">
+    <style>
+        body {
+            background-color: rgb(0, 183, 255);
+            color: rgb(225, 0, 255);
+            font-family: 'Courier New', monospace;
+        }
+        input {
+            font-family: 'Courier New', monospace;
+            padding: 5px;
+        }
+        button {
+            font-family: 'Courier New', monospace;
+            padding: 10px 20px;
+            background-color: black;
+            color: rgb(0, 255, 13);
+            border: 2px solid black;
+        }
+        button:hover {
+            background-color: rgb(47, 0, 255);
+            color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>System Admin Database Access</h1>
+
+    <p>Enter the access code to proceed:</p>
+
+    <form onsubmit="checkCode(event)">
+        <input type="password" id="code" placeholder="Enter code">
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="error" style="color: red; display: none;">Incorrect code. Access denied.</p>
+
+    <p><a href="index.html">Back to Home</a></p>
+
+    <footer>developed by nittany34</footer>
+
+    <script>
+        function checkCode(event) {
+            event.preventDefault();
+            const code = document.getElementById('code').value;
+            if (code === '0323systemloginapplication') {
+                window.location.href = 'fdkasmgokdfmgrtidef0ir90ti049530fggsecretid=20.html';
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
