@@ -43,16 +43,65 @@
             margin-top: 50px;
             text-align: center;
         }
+    
+        .language-toggler {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .language-arrow {
+            font-size: 0.9em;
+        }
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 183, 255, 0.95);
+            border: 2px solid black;
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+            z-index: 1000;
+            min-width: 170px;
+        }
+        .language-menu .button-link {
+            display: block;
+            width: calc(100% - 12px);
+            margin: 6px auto;
+        }
+        .language-notice {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 2000;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
 
-    <div style="text-align: center; margin-bottom: 20px;">
-        <span onclick="toggleLanguageMenu()" class="button-link" style="cursor:pointer;">🌐</span>
-        <div id="language-menu" style="display:none; position:absolute; background-color: rgba(0,183,255,0.9); border: 2px solid black; padding:10px; border-radius:10px; text-align:center;">
-            <button onclick="switchToEnglish()" class="button-link">English</button><br>
-            <button onclick="switchToSpanish()" class="button-link">Español</button>
+    <div style="position: relative; text-align: center; margin-bottom: 20px;">
+        <button onclick="toggleLanguageMenu()" class="button-link language-toggler" type="button">
+            <span class="globe">🌐</span>
+            <span class="language-label">Español</span>
+            <span class="language-arrow">▼</span>
+        </button>
+        <div id="language-menu" class="language-menu">
+            <button onclick="switchToEnglish()" class="button-link" type="button">English</button>
+            <button onclick="switchToSpanish()" class="button-link" type="button">Español</button>
         </div>
+        <div id="language-notice" class="language-notice"></div>
     </div>
 
     <h1>Requisitos del sistema</h1>
@@ -85,16 +134,28 @@
 
     <script>
         function toggleLanguageMenu() {
-            var menu = document.getElementById('language-menu');
-            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+            const menu = document.getElementById('language-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
         function switchToEnglish() {
-            window.location.href = 'system-requirements.html';
+            showLanguageNotice('Switching to English...');
+            setTimeout(() => window.location.href = 'system-requirements.html', 600);
         }
         function switchToSpanish() {
             toggleLanguageMenu();
         }
+        function showLanguageNotice(message) {
+            const notice = document.getElementById('language-notice');
+            notice.textContent = message;
+            notice.style.display = 'block';
+            notice.style.opacity = '1';
+            setTimeout(() => { notice.style.opacity = '0'; setTimeout(() => notice.style.display = 'none', 300); }, 1800);
+        }
+        document.addEventListener('click', (event) => {
+            const menu = document.getElementById('language-menu');
+            const toggler = document.querySelector('.language-toggler');
+            if (menu && toggler && !menu.contains(event.target) && !toggler.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
     </script>
-
-</body>
-</html>
