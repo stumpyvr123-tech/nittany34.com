@@ -41,6 +41,8 @@
     <h1>Welcome</h1>
     <h2>This is the domain for nittany34's web projects.</h2>
 
+    <p>Enter your username: <input id="username"> <button onclick="login()">Login</button></p>
+
     <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
 
     <a href="about.html" class="button-link">About</a>
@@ -61,6 +63,18 @@
     <footer>developed by nittany34</footer>
 
     <script>
+        function login() {
+            const user = document.getElementById('username').value.trim();
+            if (user) {
+                sessionStorage.setItem('currentUser', user);
+                let active = JSON.parse(localStorage.getItem('activeUsers') || '[]');
+                if (!active.includes(user)) {
+                    active.push(user);
+                    localStorage.setItem('activeUsers', JSON.stringify(active));
+                }
+                alert('Logged in as ' + user);
+            }
+        }
         if (sessionStorage.getItem('secretAccessed') === 'true') {
             document.getElementById('secret-buttons').style.display = 'block';
         }
