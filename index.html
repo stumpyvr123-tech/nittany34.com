@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>nittany34.com</title>
+    <title>Welcome to nittany34.com!</title>
     <link rel="icon" href="Untitled Project.jpg">
     <style>
         body {
@@ -24,15 +24,21 @@
         .button-link {
             display: inline-block;
             padding: 10px 20px;
-            background-color: black;
+            background: linear-gradient(to right, black, #333);
             color: rgb(0, 255, 13);
             text-decoration: none;
             border: 2px solid black;
             font-family: 'Courier New', monospace;
+            border-radius: 10px;
+            margin: 5px;
         }
         .button-link:hover {
             background-color: rgb(47, 0, 255);
             color: rgb(255, 0, 0);
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
         }
     </style>
 </head>
@@ -41,70 +47,19 @@
     <h1>Welcome</h1>
     <h2>This is the domain for nittany34's web projects.</h2>
 
-    <p>Enter your username: <input id="username"> <button onclick="login()">Login</button></p>
+    <div style="text-align: center;">
+        <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
 
-    <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
+        <a href="about.html" class="button-link">About</a>
 
-    <a href="about.html" class="button-link">About</a>
+        <a href="display-test.html" class="button-link">Display Test</a>
 
-    <a href="display-test.html" class="button-link">Display Test</a>
+        <a href="system-requirements.html" class="button-link">System Requirements</a>
 
-    <a href="system-requirements.html" class="button-link">System Requirements</a>
-
-    <a href="documenting.html" class="button-link">Coding Journey</a>
-
-    <a href="system-admin-database.html" class="button-link">System Admin Database</a>
-
-    <div id="secret-buttons" style="display: none;">
-        <p>Ban User: <input id="banUserHome" placeholder="Enter username"> <button onclick="banUserHome()">Ban</button></p>
-        <a href="https://studio.youtube.com/channel/UCzsCIZWrlOLTJLQwzMOsB8w" target="_blank" class="button-link">YouTube Studio</a>
-        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZWPmRVRVcHnWLzXCZZhmMPXXQmjBsvMWsqJxZhKSFLjTvbsgqvlGXDxzwlszGZgWMsQjB" target="_blank" class="button-link">Email Dev</a>
-        <p>Banned Users:</p>
-        <ul id="bannedListHome"></ul>
+        <a href="documenting.html" class="button-link">Coding Journey</a>
     </div>
 
     <footer>developed by nittany34</footer>
-
-    <script>
-        function login() {
-            const user = document.getElementById('username').value.trim();
-            if (user) {
-                sessionStorage.setItem('currentUser', user);
-                let active = JSON.parse(localStorage.getItem('activeUsers') || '[]');
-                if (!active.includes(user)) {
-                    active.push(user);
-                    localStorage.setItem('activeUsers', JSON.stringify(active));
-                }
-                alert('Logged in as ' + user);
-            }
-        }
-        function banUserHome() {
-            const username = document.getElementById('banUserHome').value.trim();
-            if (username) {
-                let banned = JSON.parse(localStorage.getItem('bannedUsers') || '[]');
-                if (!banned.includes(username)) {
-                    banned.push(username);
-                    localStorage.setItem('bannedUsers', JSON.stringify(banned));
-                    updateBannedListHome();
-                }
-                document.getElementById('banUserHome').value = '';
-            }
-        }
-        function updateBannedListHome() {
-            const banned = JSON.parse(localStorage.getItem('bannedUsers') || '[]');
-            const list = document.getElementById('bannedListHome');
-            list.innerHTML = '';
-            banned.forEach(user => {
-                const li = document.createElement('li');
-                li.textContent = user;
-                list.appendChild(li);
-            });
-        }
-        if (sessionStorage.getItem('secretAccessed') === 'true') {
-            document.getElementById('secret-buttons').style.display = 'block';
-            updateBannedListHome();
-        }
-    </script>
 
 </body>
 </html>
