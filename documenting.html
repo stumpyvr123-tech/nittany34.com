@@ -48,7 +48,11 @@
 <body>
 
     <div style="text-align: center; margin-bottom: 20px;">
-        <a href="#" onclick="if(confirm('Switch to Español?')) window.location.href='documenting-es.html'; return false;" class="button-link">Español</a>
+        <span onclick="toggleLanguageMenu()" class="button-link" style="cursor:pointer;">🌐</span>
+        <div id="language-menu" style="display:none; position:absolute; background-color: rgba(0,183,255,0.9); border: 2px solid black; padding:10px; border-radius:10px; text-align:center;">
+            <button onclick="switchToEnglish()" class="button-link">English</button><br>
+            <button onclick="switchToSpanish()" class="button-link">Español</button>
+        </div>
     </div>
 
     <h1>Coding Journey Documentation</h1>
@@ -62,6 +66,19 @@
     </div>
 
     <footer>developed by nittany34</footer>
+
+    <script>
+        function toggleLanguageMenu() {
+            var menu = document.getElementById('language-menu');
+            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        }
+        function switchToEnglish() {
+            toggleLanguageMenu();
+        }
+        function switchToSpanish() {
+            window.location.href = 'documenting-es.html';
+        }
+    </script>
 
 </body>
 </html>

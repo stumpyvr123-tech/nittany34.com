@@ -48,7 +48,11 @@
 <body>
 
     <div style="text-align: center; margin-bottom: 20px;">
-        <a href="#" onclick="if(confirm('Switch to English?')) window.location.href='system-requirements.html'; return false;" class="button-link">English</a>
+        <span onclick="toggleLanguageMenu()" class="button-link" style="cursor:pointer;">🌐</span>
+        <div id="language-menu" style="display:none; position:absolute; background-color: rgba(0,183,255,0.9); border: 2px solid black; padding:10px; border-radius:10px; text-align:center;">
+            <button onclick="switchToEnglish()" class="button-link">English</button><br>
+            <button onclick="switchToSpanish()" class="button-link">Español</button>
+        </div>
     </div>
 
     <h1>Requisitos del sistema</h1>
@@ -78,6 +82,19 @@
     </div>
 
     <footer>desarrollado por nittany34</footer>
+
+    <script>
+        function toggleLanguageMenu() {
+            var menu = document.getElementById('language-menu');
+            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        }
+        function switchToEnglish() {
+            window.location.href = 'system-requirements.html';
+        }
+        function switchToSpanish() {
+            toggleLanguageMenu();
+        }
+    </script>
 
 </body>
 </html>
