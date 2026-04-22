@@ -24,6 +24,23 @@
             background-color: rgb(47, 0, 255);
             color: rgb(255, 0, 0);
         }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: black;
+            padding: 20px;
+            border: 1px solid black;
+            font-family: Arial, sans-serif;
+            z-index: 1000;
+        }
+        #popup a {
+            color: blue;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -37,7 +54,10 @@
         <button type="submit">Submit</button>
     </form>
 
-    <p id="error" style="color: red; display: none;">Incorrect code. Access denied.</p>
+    <div id="popup">
+        <p>Incorrect code. Access denied.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
 
     <p><a href="index.html">Back to Home</a></p>
 
@@ -50,8 +70,11 @@
             if (code === '0323systemloginapplication') {
                 window.location.href = 'fdkasmgokdfmgrtidef0ir90ti049530fggsecretid=20.html';
             } else {
-                document.getElementById('error').style.display = 'block';
+                document.getElementById('popup').style.display = 'block';
             }
+        }
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
         }
     </script>
 
