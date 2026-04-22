@@ -24,19 +24,32 @@
         .button-link {
             display: inline-block;
             padding: 10px 20px;
-            background-color: black;
+            background: linear-gradient(to right, black, #333);
             color: rgb(0, 255, 13);
             text-decoration: none;
             border: 2px solid black;
             font-family: 'Courier New', monospace;
+            border-radius: 10px;
+            margin: 5px;
         }
         .button-link:hover {
             background-color: rgb(47, 0, 255);
             color: rgb(255, 0, 0);
         }
+        h1, h2 {
+            text-align: center;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="#" onclick="if(confirm('Switch to Español?')) window.location.href='system-requirements-es.html'; return false;" class="button-link">Español</a>
+    </div>
 
     <h1>System Requirements</h1>
 
@@ -60,7 +73,9 @@
 
     <p>If you encounter any issues, try updating your browser or enabling JavaScript.</p>
 
-    <p><a href="index.html" class="button-link">Back to Home</a></p>
+    <div style="text-align: center;">
+        <a href="index.html" class="button-link">Back to Home</a>
+    </div>
 
     <footer>developed by nittany34</footer>
 
