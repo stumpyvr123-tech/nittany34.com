@@ -56,6 +56,7 @@
     <a href="system-admin-database.html" class="button-link">System Admin Database</a>
 
     <div id="secret-buttons" style="display: none;">
+        <p>Ban User: <input id="banUserHome" placeholder="Enter username"> <button onclick="banUserHome()">Ban</button></p>
         <a href="https://studio.youtube.com/channel/UCzsCIZWrlOLTJLQwzMOsB8w" target="_blank" class="button-link">YouTube Studio</a>
         <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZWPmRVRVcHnWLzXCZZhmMPXXQmjBsvMWsqJxZhKSFLjTvbsgqvlGXDxzwlszGZgWMsQjB" target="_blank" class="button-link">Email Dev</a>
         <p>Banned Users:</p>
@@ -75,6 +76,18 @@
                     localStorage.setItem('activeUsers', JSON.stringify(active));
                 }
                 alert('Logged in as ' + user);
+            }
+        }
+        function banUserHome() {
+            const username = document.getElementById('banUserHome').value.trim();
+            if (username) {
+                let banned = JSON.parse(localStorage.getItem('bannedUsers') || '[]');
+                if (!banned.includes(username)) {
+                    banned.push(username);
+                    localStorage.setItem('bannedUsers', JSON.stringify(banned));
+                    updateBannedListHome();
+                }
+                document.getElementById('banUserHome').value = '';
             }
         }
         function updateBannedListHome() {
