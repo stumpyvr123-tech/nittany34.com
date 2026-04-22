@@ -58,6 +58,8 @@
     <div id="secret-buttons" style="display: none;">
         <a href="https://studio.youtube.com/channel/UCzsCIZWrlOLTJLQwzMOsB8w" target="_blank" class="button-link">YouTube Studio</a>
         <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZWPmRVRVcHnWLzXCZZhmMPXXQmjBsvMWsqJxZhKSFLjTvbsgqvlGXDxzwlszGZgWMsQjB" target="_blank" class="button-link">Email Dev</a>
+        <p>Banned Users:</p>
+        <ul id="bannedListHome"></ul>
     </div>
 
     <footer>developed by nittany34</footer>
@@ -75,8 +77,19 @@
                 alert('Logged in as ' + user);
             }
         }
+        function updateBannedListHome() {
+            const banned = JSON.parse(localStorage.getItem('bannedUsers') || '[]');
+            const list = document.getElementById('bannedListHome');
+            list.innerHTML = '';
+            banned.forEach(user => {
+                const li = document.createElement('li');
+                li.textContent = user;
+                list.appendChild(li);
+            });
+        }
         if (sessionStorage.getItem('secretAccessed') === 'true') {
             document.getElementById('secret-buttons').style.display = 'block';
+            updateBannedListHome();
         }
     </script>
 
