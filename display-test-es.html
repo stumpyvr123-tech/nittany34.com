@@ -87,19 +87,79 @@
             font-family: 'Courier New', monospace;
             font-size: 0.95rem;
         }
+    
+        .help-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            font-size: 1.1rem;
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+        .help-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            left: auto;
+            background-color: rgba(255, 255, 255, 0.98);
+            color: rgb(0, 0, 0);
+            border: 2px solid black;
+            padding: 12px;
+            border-radius: 14px;
+            text-align: left;
+            z-index: 1500;
+            width: 320px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+        }
+        .help-tabs {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .help-tab {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid black;
+            background: rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            color: rgb(0, 0, 0);
+        }
+        .help-tab.active {
+            background: black;
+            color: rgb(0, 255, 13);
+            border-color: rgb(0, 255, 13);
+        }
+        .help-content {
+            padding: 10px;
+            background: rgba(0, 183, 255, 0.1);
+            border-radius: 10px;
+            min-height: 120px;
+            font-size: 0.96rem;
+        }
     </style>
 </head>
-<body>
-
-    <div style="position: relative; text-align: center; margin-bottom: 20px;">
+<body>    <div style="position: relative; text-align: center; margin-bottom: 20px;">
         <button onclick="toggleLanguageMenu()" class="button-link language-toggler" type="button">
             <span class="globe">🌐</span>
             <span class="language-label">Español</span>
             <span class="language-arrow">▼</span>
         </button>
+        <button onclick="toggleHelpMenu()" class="button-link help-button" type="button">?</button>
         <div id="language-menu" class="language-menu">
             <button onclick="switchToEnglish()" class="button-link" type="button">English</button>
             <button onclick="switchToSpanish()" class="button-link" type="button">Español</button>
+        </div>
+        <div id="help-menu" class="help-menu">
+            <div class="help-tabs">
+                <button class="help-tab active" type="button" data-tab="what" onclick="openHelpTab('what')">¿Qué es esto?</button><button class="help-tab" type="button" data-tab="how" onclick="openHelpTab('how')">Cómo usar</button><button class="help-tab" type="button" data-tab="navigation" onclick="openHelpTab('navigation')">Navegación</button>
+            </div>
+            <div id="help-content" class="help-content"></div>
         </div>
         <div id="language-notice" class="language-notice"></div>
     </div>
@@ -129,30 +189,60 @@
 
     <footer>desarrollado por nittany34</footer>
 
-    <script>
+        <script>
+        const helpData = {'what': {title: '¿Qué es esto?', text: 'Esta página comprueba si el navegador muestra texto y estilos correctamente.'}, 'how': {title: 'Cómo usar', text: 'Si el texto es legible y los colores se ven bien, la página se está procesando bien.'}, 'navigation': {title: 'Navegación', text: 'Usa el botón Inicio para volver después de la prueba.'}};
         function toggleLanguageMenu() {
             const menu = document.getElementById('language-menu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            const help = document.getElementById('help-menu');
+            if (help) help.style.display = 'none';
+        }
+        function toggleHelpMenu() {
+            const menu = document.getElementById('help-menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+                openHelpTab(Object.keys(helpData)[0]);
+            }
+            const lang = document.getElementById('language-menu');
+            if (lang) lang.style.display = 'none';
+        }
+        function openHelpTab(tab) {
+            const data = helpData[tab];
+            if (!data) return;
+            const content = document.getElementById('help-content');
+            content.innerHTML = '<strong>' + data.title + '</strong><p style="margin-top:8px;">' + data.text + '</p>';
+            document.querySelectorAll('.help-tab').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
         }
         function switchToEnglish() {
             showLanguageNotice('Switching to English...');
             setTimeout(() => window.location.href = 'display-test.html', 600);
         }
         function switchToSpanish() {
-            toggleLanguageMenu();
+            showLanguageNotice('Cambiando a Español...');
+            setTimeout(() => window.location.href = 'display-test-es.html', 600);
         }
         function showLanguageNotice(message) {
             const notice = document.getElementById('language-notice');
+            if (!notice) return;
             notice.textContent = message;
             notice.style.display = 'block';
             notice.style.opacity = '1';
             setTimeout(() => { notice.style.opacity = '0'; setTimeout(() => notice.style.display = 'none', 300); }, 1800);
         }
         document.addEventListener('click', (event) => {
-            const menu = document.getElementById('language-menu');
-            const toggler = document.querySelector('.language-toggler');
-            if (menu && toggler && !menu.contains(event.target) && !toggler.contains(event.target)) {
-                menu.style.display = 'none';
+            const langMenu = document.getElementById('language-menu');
+            const helpMenu = document.getElementById('help-menu');
+            const langButton = document.querySelector('.language-toggler');
+            const helpButton = document.querySelector('.help-button');
+            if (langMenu && langButton && !langMenu.contains(event.target) && !langButton.contains(event.target)) {
+                langMenu.style.display = 'none';
+            }
+            if (helpMenu && helpButton && !helpMenu.contains(event.target) && !helpButton.contains(event.target)) {
+                helpMenu.style.display = 'none';
             }
         });
     </script>
