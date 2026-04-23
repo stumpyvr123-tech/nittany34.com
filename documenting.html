@@ -86,9 +86,7 @@
             z-index: 2000;
             font-family: 'Courier New', monospace;
             font-size: 0.95rem;
-        }
-    
-        .help-button {
+        }        .help-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -100,51 +98,76 @@
         }
         .help-menu {
             display: none;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            left: auto;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: rgba(255, 255, 255, 0.98);
             color: rgb(0, 0, 0);
             border: 2px solid black;
-            padding: 12px;
-            border-radius: 14px;
+            padding: 18px;
+            border-radius: 18px;
             text-align: left;
             z-index: 1500;
-            width: 320px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            width: min(420px, 92vw);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
         }
         .help-tabs {
             display: flex;
             justify-content: space-between;
-            gap: 5px;
-            margin-bottom: 10px;
+            gap: 6px;
+            margin-bottom: 12px;
         }
         .help-tab {
             flex: 1;
-            padding: 8px 10px;
+            padding: 10px 12px;
             border-radius: 8px;
             border: 1px solid black;
             background: rgba(0, 0, 0, 0.08);
             cursor: pointer;
             font-family: 'Courier New', monospace;
             color: rgb(0, 0, 0);
+            transition: background 0.2s, color 0.2s;
         }
         .help-tab.active {
             background: black;
             color: rgb(0, 255, 13);
             border-color: rgb(0, 255, 13);
         }
-        .help-content {
-            padding: 10px;
-            background: rgba(0, 183, 255, 0.1);
-            border-radius: 10px;
-            min-height: 120px;
-            font-size: 0.96rem;
+        .help-submenu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
         }
-    </style>
+        .help-subtab {
+            flex: 1 1 45%;
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.2);
+            background: rgba(0, 0, 0, 0.04);
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+        .help-subtab.active {
+            background: rgba(0, 255, 13, 0.15);
+            border-color: rgb(0, 255, 13);
+        }
+        .help-content {
+            padding: 12px;
+            background: rgba(0, 183, 255, 0.12);
+            border-radius: 10px;
+            min-height: 140px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+</style>
 </head>
-<body>    <div style="position: relative; text-align: center; margin-bottom: 20px;">
+<body>        
+
+        <div style="position: relative; text-align: center; margin-bottom: 20px;">
         <button onclick="toggleLanguageMenu()" class="button-link language-toggler" type="button">
             <span class="globe">🌐</span>
             <span class="language-label">English</span>
@@ -156,15 +179,23 @@
             <button onclick="switchToSpanish()" class="button-link" type="button">Español</button>
         </div>
         <div id="help-menu" class="help-menu">
-            <div class="help-tabs">
-                <button class="help-tab active" type="button" data-tab="what" onclick="openHelpTab('what')">What is this?</button><button class="help-tab" type="button" data-tab="video" onclick="openHelpTab('video')">Video</button><button class="help-tab" type="button" data-tab="navigation" onclick="openHelpTab('navigation')">Navigation</button>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; gap:10px;">
+                <div style="font-weight:bold; font-size:1rem;">Help Menu</div>
+                <button onclick="toggleHelpMenu()" style="background:none; border:none; font-size:1.2rem; cursor:pointer;">×</button>
             </div>
+            <div class="help-tabs">
+                <button class="help-tab" type="button" data-tab="what" onclick="openHelpTab('what')">What is this?</button>
+                <button class="help-tab" type="button" data-tab="video" onclick="openHelpTab('video')">Video</button>
+                <button class="help-tab" type="button" data-tab="navigation" onclick="openHelpTab('navigation')">Navigation</button>
+                <button class="help-tab" type="button" data-tab="faq" onclick="openHelpTab('faq')">FAQ</button>
+            </div>
+            <div id="help-submenu" class="help-submenu"></div>
             <div id="help-content" class="help-content"></div>
         </div>
         <div id="language-notice" class="language-notice"></div>
     </div>
 
-    <h1>Coding Journey Documentation</h1>
+<h1>Coding Journey Documentation</h1>
 
     <p>Day 1 of Coding Documentation Guide.</p>
 
@@ -177,20 +208,44 @@
     <footer>developed by nittany34</footer>
 
         <script>
-        const helpData = {'what': {title: 'What is this?', text: 'This page links you to the coding documentation and resources.'}, 'video': {title: 'Video', text: 'Use the video button to watch the guide on YouTube.'}, 'navigation': {title: 'Navigation', text: 'Return to home with the button below.'}};
+        const helpData = {
+            'what': { title: 'What is this?', sub: {
+                'Content': 'Notes and coding journey information.',
+                'Video': 'A link to a tutorial video is included.',
+                'Purpose': 'Documents development progress.'
+            } },
+            'video': { title: 'Video', sub: {
+                'Watch': 'Open the YouTube guide from the page.',
+                'Tutorial': 'Learn from the video walkthrough.',
+                'Link': 'Use the link provided on the page.'
+            } },
+            'navigation': { title: 'Navigation', sub: {
+                'Back Home': 'Home returns to the main site.',
+                'Link': 'Video opens in a new tab.',
+                'Help': 'Use help for page details.'
+            } },
+            'faq': { title: 'FAQ', sub: {
+                'Why Video?': 'Provides extra learning support.',
+                'Page Use': 'Tracks coding progress and notes.',
+                'Next Step': 'Explore other pages afterward.'
+            } }
+        };
         function toggleLanguageMenu() {
             const menu = document.getElementById('language-menu');
+            if (!menu) return;
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
             const help = document.getElementById('help-menu');
             if (help) help.style.display = 'none';
         }
         function toggleHelpMenu() {
             const menu = document.getElementById('help-menu');
+            if (!menu) return;
             if (menu.style.display === 'block') {
                 menu.style.display = 'none';
             } else {
+                const firstTab = Object.keys(helpData)[0];
+                openHelpTab(firstTab);
                 menu.style.display = 'block';
-                openHelpTab(Object.keys(helpData)[0]);
             }
             const lang = document.getElementById('language-menu');
             if (lang) lang.style.display = 'none';
@@ -198,19 +253,68 @@
         function openHelpTab(tab) {
             const data = helpData[tab];
             if (!data) return;
-            const content = document.getElementById('help-content');
-            content.innerHTML = '<strong>' + data.title + '</strong><p style="margin-top:8px;">' + data.text + '</p>';
+            const submenu = document.getElementById('help-submenu');
+            submenu.innerHTML = '';
+            const firstSub = Object.keys(data.sub || {})[0] || null;
+            if (data.sub) {
+                Object.keys(data.sub).forEach((subtab) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'help-subtab';
+                    btn.textContent = subtab;
+                    btn.onclick = () => openHelpSubtab(tab, subtab);
+                    btn.dataset.subtab = subtab;
+                    submenu.appendChild(btn);
+                });
+            }
+            openHelpSubtab(tab, firstSub);
             document.querySelectorAll('.help-tab').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.tab === tab);
             });
         }
+        function openHelpSubtab(tab, subtab) {
+            const data = helpData[tab];
+            if (!data) return;
+            const content = document.getElementById('help-content');
+            const subContent = data.sub && data.sub[subtab];
+            const title = data.title || '';
+            if (subContent) {
+                content.innerHTML = '<strong>' + title + ' — ' + subtab + '</strong><p style="margin-top:10px;">' + subContent + '</p>';
+            } else {
+                content.innerHTML = '<strong>' + title + '</strong><p style="margin-top:10px;">' + (data.text || 'No details available.') + '</p>';
+            }
+            document.querySelectorAll('.help-subtab').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.subtab === subtab);
+            });
+        }
+        function buildHelpTabs() {
+            const tabs = document.querySelectorAll('.help-tab');
+            if (!tabs.length) return;
+            tabs.forEach(btn => {
+                btn.addEventListener('click', () => openHelpTab(btn.dataset.tab));
+            });
+        }
         function switchToEnglish() {
+            const pathname = window.location.pathname;
             showLanguageNotice('Switching to English...');
-            setTimeout(() => window.location.href = 'documenting.html', 600);
+            setTimeout(() => {
+                if (pathname.endsWith('-es.html')) {
+                    window.location.href = pathname.replace(/-es\.html$/, '.html');
+                } else {
+                    window.location.href = 'index.html';
+                }
+            }, 600);
         }
         function switchToSpanish() {
+            const pathname = window.location.pathname;
             showLanguageNotice('Cambiando a Español...');
-            setTimeout(() => window.location.href = 'documenting-es.html', 600);
+            setTimeout(() => {
+                if (pathname.endsWith('.html') && !pathname.endsWith('-es.html')) {
+                    window.location.href = pathname.replace(/\.html$/, '-es.html');
+                } else {
+                    window.location.href = 'index-es.html';
+                }
+            }, 600);
         }
         function showLanguageNotice(message) {
             const notice = document.getElementById('language-notice');
@@ -232,4 +336,11 @@
                 helpMenu.style.display = 'none';
             }
         });
+        document.addEventListener('keydown', (event) => {
+            const helpMenu = document.getElementById('help-menu');
+            if (event.key === 'Escape' && helpMenu) {
+                helpMenu.style.display = 'none';
+            }
+        });
+        document.addEventListener('DOMContentLoaded', buildHelpTabs);
     </script>
