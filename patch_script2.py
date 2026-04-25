@@ -1,7 +1,7 @@
 from pathlib import Path
 import re
 
-files = ['index.html','about.html','display-test.html','documenting.html','system-requirements.html','index-es.html','about-es.html','display-test-es.html','documenting-es.html','system-requirements-es.html']
+files = ['index.html','about.html','documenting.html','system-requirements.html','index-es.html','about-es.html','documenting-es.html','system-requirements-es.html']
 
 common_script = '''<script>
         const helpData = {
@@ -167,28 +167,6 @@ help_data_map = {
             'More Soon': 'More content will be added soon.'
         }}
     },
-    'display-test.html': {
-        'what': {'title': 'What is this?', 'sub': {
-            'Purpose': 'Checks display and structure.',
-            'Working': 'Text and colors should be readable.',
-            'Testing': 'Useful for browser rendering checks.'
-        }},
-        'how': {'title': 'How to use', 'sub': {
-            'Readability': 'Check that text is clear.',
-            'Layout': 'Confirm the page structure.',
-            'Browser': 'Use a modern browser for best results.'
-        }},
-        'navigation': {'title': 'Navigation', 'sub': {
-            'Back Home': 'Click the home button below.',
-            'Try Page': 'Move to other pages afterward.',
-            'Help': 'Open help for more details.'
-        }},
-        'faq': {'title': 'FAQ', 'sub': {
-            'Pass/Fail': 'Looks good means pass.',
-            'Issues': 'Update browser or enable JS if needed.',
-            'Return': 'Go back to the homepage anytime.'
-        }}
-    },
     'documenting.html': {
         'what': {'title': 'What is this?', 'sub': {
             'Content': 'Notes and coding journey information.',
@@ -275,28 +253,6 @@ help_data_map = {
             'Por qué aquí?': 'Dominio usado para experimentos.',
             'Cómo usar': 'Haz clic para explorar páginas.',
             'Más tarde': 'Pronto habrá más contenido.'
-        }}
-    },
-    'display-test-es.html': {
-        'what': {'title': '¿Qué es esto?', 'sub': {
-            'Propósito': 'Comprueba la visualización.',
-            'Funciona': 'El texto y color deben verse bien.',
-            'Prueba': 'Verifica el renderizado del navegador.'
-        }},
-        'how': {'title': 'Cómo usar', 'sub': {
-            'Lectura': 'Revisa si el texto es claro.',
-            'Diseño': 'Confirma la estructura de la página.',
-            'Navegador': 'Usa un navegador moderno.'
-        }},
-        'navigation': {'title': 'Navegación', 'sub': {
-            'Volver': 'Botón de inicio debajo.',
-            'Probar': 'Visita otras páginas después.',
-            'Ayuda': 'Abre ayuda para más detalles.'
-        }},
-        'faq': {'title': 'Preguntas', 'sub': {
-            'Aprobado': 'Se ve bien = aprobado.',
-            'Problemas': 'Actualiza navegador o habilita JS.',
-            'Regresar': 'Vuelve a la página principal.'
         }}
     },
     'documenting-es.html': {
