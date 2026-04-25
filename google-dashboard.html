@@ -1,127 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>Google Dashboard</title>
     <link rel="icon" href="Untitled Project.jpg">
     <style>
-        :root {
-            color-scheme: dark;
-            font-family: Inter, system-ui, sans-serif;
-        }
         body {
+            background-color: rgb(0, 183, 255);
+            font-family: 'Courier New', monospace;
+            color: rgb(225, 0, 255);
             margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(180deg, #0a1933 0%, #07142a 100%);
-            color: #eef4ff;
+            padding: 0;
         }
-        main {
-            width: min(720px, calc(100vw - 32px));
-            padding: 40px 34px;
-            border-radius: 30px;
-            background: rgba(10, 19, 51, 0.94);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+        a {
+            color: rgb(212, 0, 255);
         }
-        h1 {
-            margin: 0;
-            font-size: clamp(2rem, 4vw, 3rem);
+        a:hover {
+            color: rgb(255, 0, 0);
+        }
+        .container {
+            max-width: 520px;
+            margin: 36px auto;
+            padding: 26px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid black;
+            border-radius: 18px;
+        }
+        h1, h2 {
+            text-align: center;
         }
         p {
-            color: #c8d5ff;
-            line-height: 1.75;
-            margin: 16px 0 28px;
-            max-width: 700px;
+            text-align: center;
+            margin: 0 auto 22px;
+            line-height: 1.6;
         }
-        .card {
-            padding: 26px;
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            margin-bottom: 24px;
+        .info {
+            margin: 18px 0;
+            padding: 18px;
+            border: 2px solid black;
+            border-radius: 14px;
+            background: rgba(0, 0, 0, 0.08);
         }
-        .card h2 {
-            margin-top: 0;
-            color: #f8fbff;
-        }
-        dl {
-            display: grid;
-            gap: 12px;
-            margin: 0;
-        }
-        dt {
-            font-size: 0.96rem;
-            color: #8fa9d9;
-        }
-        dd {
-            margin: 0;
-            color: #eef4ff;
-            font-weight: 600;
+        .info div {
+            margin: 10px 0;
         }
         .actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
+            text-align: center;
+            margin-top: 20px;
         }
-        .button {
-            padding: 14px 22px;
-            border-radius: 999px;
+        .button-link {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(to right, black, #333);
+            color: rgb(0, 255, 13);
             text-decoration: none;
-            font-weight: 700;
-            transition: transform 160ms ease, box-shadow 160ms ease;
-            border: 1px solid transparent;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: 8px;
         }
-        .button.primary {
-            background: #4285f4;
-            color: white;
+        .button-link:hover {
+            background-color: rgb(47, 0, 255);
+            color: rgb(255, 0, 0);
         }
-        .button.accent {
-            background: rgba(255, 255, 255, 0.08);
-            color: #d9e5ff;
-            border-color: rgba(255, 255, 255, 0.14);
-        }
-        .button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 18px 36px rgba(66, 133, 244, 0.24);
+        footer {
+            text-align: center;
+            margin-top: 26px;
         }
     </style>
 </head>
 <body>
-    <main>
-        <h1>Google Account Dashboard</h1>
-        <p id="intro">Loading your account...</p>
-        <section class="card">
-            <h2>Account overview</h2>
-            <dl>
-                <div>
-                    <dt>Email</dt>
-                    <dd id="userEmail">—</dd>
-                </div>
-                <div>
-                    <dt>Account status</dt>
-                    <dd>Signed in</dd>
-                </div>
-                <div>
-                    <dt>Session type</dt>
-                    <dd>Browser-based demo</dd>
-                </div>
-            </dl>
-        </section>
-        <div class="actions">
-            <a class="button primary" id="signOut" href="#">Sign out</a>
-            <a class="button accent" href="index.html">Back to Home</a>
+    <div class="container">
+        <h1>Google Dashboard</h1>
+        <p>Your account is active. This page mirrors the site style while keeping the login path quick and simple.</p>
+        <div class="info">
+            <div><strong>Email:</strong> <span id="userEmail">...</span></div>
+            <div><strong>Status:</strong> Signed in</div>
+            <div><strong>Mode:</strong> Browser demo</div>
         </div>
-    </main>
+        <div class="actions">
+            <a href="#" id="signOut" class="button-link">Sign out</a>
+            <a href="index.html" class="button-link">Home</a>
+        </div>
+    </div>
+    <footer>developed by nittany34</footer>
     <script>
         const email = sessionStorage.getItem('googleUserEmail');
         if (!email) {
             window.location.href = 'google-login.html';
         } else {
             document.getElementById('userEmail').textContent = email;
-            document.getElementById('intro').textContent = `Welcome back, ${email}. Your Google account experience is ready.`;
         }
         document.getElementById('signOut').addEventListener('click', event => {
             event.preventDefault();

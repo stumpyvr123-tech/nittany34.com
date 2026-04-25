@@ -1,92 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>nittany34.com</title>
+    <title>Welcome to nittany34.com!</title>
     <link rel="icon" href="Untitled Project.jpg">
     <style>
-        :root {
-            color-scheme: dark;
-            font-family: Inter, system-ui, sans-serif;
-        }
         body {
+            background-color: rgb(0, 183, 255);
+            font-family: 'Courier New', monospace;
+            color: rgb(225, 0, 255);
             margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle at top, #3b6dfa 0%, #07142a 55%);
-            color: #eef4ff;
+            padding: 0;
         }
-        main {
-            width: min(760px, calc(100vw - 32px));
+        a {
+            color: rgb(212, 0, 255);
+        }
+        a:visited {
+            color: rgb(174, 0, 255);
+        }
+        a:hover {
+            color: rgb(255, 0, 0);
+        }
+        a:active {
+            color: rgb(255, 0, 200);
+        }
+        .button-link {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(to right, black, #333);
+            color: rgb(0, 255, 13);
+            text-decoration: none;
+            border: 2px solid black;
+            font-family: 'Courier New', monospace;
+            border-radius: 10px;
+            margin: 8px;
+        }
+        .button-link:hover {
+            background-color: rgb(47, 0, 255);
+            color: rgb(255, 0, 0);
+        }
+        h1, h2 {
             text-align: center;
-            padding: 40px 32px;
-            border-radius: 32px;
-            background: rgba(8, 17, 39, 0.92);
-            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
-        }
-        h1 {
-            margin: 0;
-            font-size: clamp(2.2rem, 4vw, 3.6rem);
-            letter-spacing: -0.04em;
         }
         p {
+            text-align: center;
             max-width: 680px;
-            margin: 20px auto 0;
-            line-height: 1.8;
-            color: #d9e5ff;
-            font-size: 1rem;
+            margin: 0 auto 18px;
+            line-height: 1.6;
         }
-        .actions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px;
-            margin: 30px auto 0;
-        }
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 20px;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-        }
-        .button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
-        }
-        .button.primary {
-            background: #4285f4;
-            color: white;
-            border-color: transparent;
-        }
-        .button.accent {
-            background: rgba(255, 255, 255, 0.08);
-            color: #d9e5ff;
+        .links {
+            text-align: center;
+            margin-top: 26px;
         }
         footer {
-            margin-top: 32px;
-            color: #94a7d8;
-            font-size: 0.95rem;
+            margin-top: 50px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <main>
-        <h1>nittany34.com</h1>
-        <p>Welcome to a cleaner site experience. Sign in with the Google account system to access your dashboard and keep the site simple.</p>
-        <div class="actions">
-            <a class="button primary" href="google-login.html">Sign in with Google</a>
-            <a class="button accent" href="about.html">About</a>
-            <a class="button accent" href="system-requirements.html">System Requirements</a>
-            <a class="button accent" href="documenting.html">Coding Journey</a>
-            <a class="button accent" href="https://www.youtube.com/@Nittany34YT" target="_blank">YouTube Channel</a>
-        </div>
-        <footer>developed by nittany34</footer>
-    </main>
+    <h1>Welcome to nittany34.com!</h1>
+    <p>Core links only. The site keeps the original look, no extra testing pages or clutter.</p>
+    <div class="links">
+        <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
+        <a href="about.html" class="button-link">About</a>
+        <a href="google-login.html" class="button-link">Google Account</a>
+        <a href="system-requirements.html" class="button-link">System Requirements</a>
+        <a href="documenting.html" class="button-link">Coding Journey</a>
+    </div>
+    <footer>developed by nittany34</footer>
 </body>
 </html>

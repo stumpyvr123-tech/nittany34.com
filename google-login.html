@@ -1,102 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>Google Account Login</title>
     <link rel="icon" href="Untitled Project.jpg">
     <style>
-        :root {
-            color-scheme: dark;
-            font-family: Inter, system-ui, sans-serif;
-        }
         body {
+            background-color: rgb(0, 183, 255);
+            font-family: 'Courier New', monospace;
+            color: rgb(225, 0, 255);
             margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0f2145 0%, #142a5f 100%);
-            color: #eef4ff;
+            padding: 0;
         }
-        main {
-            width: min(520px, calc(100vw - 32px));
-            padding: 40px 30px;
-            border-radius: 28px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
-            text-align: center;
+        a {
+            color: rgb(212, 0, 255);
+        }
+        a:hover {
+            color: rgb(255, 0, 0);
+        }
+        .container {
+            max-width: 520px;
+            margin: 36px auto;
+            padding: 26px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid black;
+            border-radius: 18px;
         }
         h1 {
-            margin: 0;
-            font-size: clamp(2rem, 4vw, 2.8rem);
+            text-align: center;
         }
         p {
-            margin: 16px auto 0;
-            max-width: 520px;
-            line-height: 1.8;
-            color: #d3defc;
-        }
-        form {
-            margin-top: 28px;
-            display: grid;
-            gap: 16px;
+            text-align: center;
+            margin: 0 0 22px;
+            line-height: 1.6;
         }
         input {
             width: 100%;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 14px 16px;
-            background: rgba(255, 255, 255, 0.08);
-            color: #eef4ff;
-            font-size: 1rem;
-        }
-        input::placeholder {
-            color: #b1c2eb;
+            margin: 10px 0;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 2px solid black;
+            background: rgba(255,255,255,0.12);
+            color: rgb(225, 0, 255);
+            font-family: 'Courier New', monospace;
         }
         button {
-            border: none;
-            border-radius: 999px;
-            padding: 14px 22px;
-            font-weight: 700;
-            font-size: 1rem;
-            background: #4285f4;
-            color: white;
+            width: 100%;
+            padding: 12px 0;
+            background: linear-gradient(to right, black, #333);
+            color: rgb(0, 255, 13);
+            border: 2px solid black;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
             cursor: pointer;
-            transition: transform 160ms ease, box-shadow 160ms ease;
         }
         button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 18px 36px rgba(66, 133, 244, 0.3);
+            background-color: rgb(47, 0, 255);
+            color: rgb(255, 0, 0);
         }
         .actions {
-            margin-top: 28px;
-            display: flex;
-            justify-content: center;
+            text-align: center;
+            margin-top: 20px;
         }
-        .actions a {
-            text-decoration: none;
-            color: #a9c5ff;
-            font-weight: 600;
+        footer {
+            text-align: center;
+            margin-top: 26px;
         }
         #message {
+            text-align: center;
             margin-top: 10px;
-            color: #f5b0b0;
-            min-height: 1.2em;
+            color: rgb(255, 0, 0);
         }
     </style>
 </head>
 <body>
-    <main>
+    <div class="container">
         <h1>Google Account Login</h1>
-        <p>Enter your Google email to continue. This page simulates a clean Google account sign-in flow for the site.</p>
+        <p>Type your Google email below and sign in. This keeps the original site styling and removes extra clutter.</p>
         <form id="loginForm">
             <input id="email" type="email" placeholder="you@gmail.com" required>
             <button type="submit">Sign in with Google</button>
         </form>
-        <div id="message" aria-live="polite"></div>
-        <div class="actions"><a href="index.html">Back to Home</a></div>
-    </main>
+        <div id="message"></div>
+        <div class="actions"><a href="index.html" class="button-link">Back to Home</a></div>
+    </div>
+    <footer>developed by nittany34</footer>
     <script>
         const form = document.getElementById('loginForm');
         const message = document.getElementById('message');
@@ -104,7 +91,7 @@
             event.preventDefault();
             const email = document.getElementById('email').value.trim();
             if (!email) {
-                message.textContent = 'Please enter your Google email address.';
+                message.textContent = 'Please enter a Google email address.';
                 return;
             }
             sessionStorage.setItem('googleUserEmail', email);
