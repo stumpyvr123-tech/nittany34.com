@@ -5,11 +5,19 @@
     <link rel="icon" href="Untitled Project.jpg">
     <style>
         body {
-            background-color: rgb(0, 183, 255);
-            color: rgb(225, 0, 255);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
             font-family: 'Courier New', monospace;
+            color: #f3e7ff;
+            background: url('n34webbg.png') center/cover no-repeat fixed;
+            background-color: #0e1a3f;
+            background-blend-mode: normal;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
-        a {
+
+a {
             color: rgb(212, 0, 255);
         }
         a:visited {
@@ -20,22 +28,9 @@
         }
         a:active {
             color: rgb(255, 0, 200);
-        }
-        .button-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(to right, black, #333);
-            color: rgb(0, 255, 13);
-            text-decoration: none;
-            border: 2px solid black;
-            font-family: 'Courier New', monospace;
-            border-radius: 10px;
-            margin: 5px;
-        }
-        .button-link:hover {
-            background-color: rgb(47, 0, 255);
-            color: rgb(255, 0, 0);
-        }
+        }        
+        
+
         h1, h2 {
             text-align: center;
         }
@@ -43,125 +38,31 @@
             margin-top: 50px;
             text-align: center;
         }
-    
-        .language-toggler {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
         .language-arrow {
             font-size: 0.9em;
         }
-        .language-menu {
-            display: none;
-            position: absolute;
-            top: 45px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 183, 255, 0.95);
-            border: 2px solid black;
-            padding: 10px;
-            border-radius: 12px;
-            text-align: center;
-            z-index: 1000;
-            min-width: 170px;
-        }
-        .language-menu .button-link {
-            display: block;
-            width: calc(100% - 12px);
-            margin: 6px auto;
-        }
-        .language-notice {
-            display: none;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.85);
-            color: white;
-            padding: 10px 18px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            z-index: 2000;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95rem;
-        }        .help-button {
+
+        .button-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 42px;
-            height: 42px;
-            font-size: 1.1rem;
-            border-radius: 50%;
-            margin-left: 8px;
-        }
-        .help-menu {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.98);
-            color: rgb(0, 0, 0);
-            border: 2px solid black;
-            padding: 18px;
-            border-radius: 18px;
-            text-align: left;
-            z-index: 1500;
-            width: min(420px, 92vw);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-        }
-        .help-tabs {
-            display: flex;
-            justify-content: space-between;
-            gap: 6px;
-            margin-bottom: 12px;
-        }
-        .help-tab {
-            flex: 1;
-            padding: 10px 12px;
-            border-radius: 8px;
-            border: 1px solid black;
-            background: rgba(0, 0, 0, 0.08);
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            color: rgb(0, 0, 0);
-            transition: background 0.2s, color 0.2s;
-        }
-        .help-tab.active {
-            background: black;
+            min-width: 150px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 0, 0, 0.75);
+            background: linear-gradient(180deg, #080808 0%, #242424 100%);
             color: rgb(0, 255, 13);
-            border-color: rgb(0, 255, 13);
+            text-decoration: none;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+            transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, color 180ms ease;
+            font-size: 0.98rem;
+            letter-spacing: 0.03em;
         }
-        .help-submenu {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 12px;
-        }
-        .help-subtab {
-            flex: 1 1 45%;
-            padding: 8px 10px;
-            border-radius: 8px;
-            border: 1px solid rgba(0,0,0,0.2);
-            background: rgba(0, 0, 0, 0.04);
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            color: rgb(0, 0, 0);
-            text-align: center;
-        }
-        .help-subtab.active {
-            background: rgba(0, 255, 13, 0.15);
-            border-color: rgb(0, 255, 13);
-        }
-        .help-content {
-            padding: 12px;
-            background: rgba(0, 183, 255, 0.12);
-            border-radius: 10px;
-            min-height: 140px;
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .button-link:hover {
+            transform: translateY(-1px);
+            background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+            color: #b7ff9e;
         }
 
         .top-bar {
@@ -171,11 +72,12 @@
             align-items: center;
             gap: 14px;
             margin-bottom: 24px;
-            padding: 18px 20px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            border-radius: 20px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            padding: 16px 22px;
+            background: rgba(9, 14, 35, 0.92);
+            border: 1px solid rgba(100, 255, 150, 0.16);
+            border-radius: 18px;
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32);
+            backdrop-filter: blur(14px);
         }
         .top-links {
             display: flex;
@@ -185,43 +87,95 @@
             justify-content: center;
         }
         .top-divider {
-            opacity: 0.6;
+            opacity: 0.55;
             margin: 0 6px;
         }
-        .language-select {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-            width: 100%;
+
+        .lang-switcher {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.08);
+            color: inherit;
+            cursor: pointer;
+            user-select: none;
         }
-        .lang-link {
+        .lang-switcher:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
+        .lang-icon,
+        .lang-arrow {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.16);
-            background: rgba(255,255,255,0.12);
-            color: inherit;
-            text-decoration: none;
-            transition: transform 180ms ease, background 180ms ease;
+        }
+        .lang-icon {
+            font-size: 1.05rem;
+        }
+        .lang-arrow {
             font-size: 0.95rem;
         }
-        .lang-link:hover {
-            transform: translateY(-1px);
-            background: rgba(255,255,255,0.22);
+        .language-dropdown {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 10px);
+            width: 240px;
+            padding: 10px;
+            border-radius: 16px;
+            background: rgba(12, 18, 45, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 20px 46px rgba(0, 0, 0, 0.35);
+            display: none;
+            z-index: 50;
         }
+        .language-dropdown.open {
+            display: block;
+        }
+        .language-dropdown a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 12px;
+            margin: 4px 0;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #f3e7ff;
+            text-decoration: none;
+            transition: background 180ms ease, transform 180ms ease;
+            border: 1px solid transparent;
+        }
+        .language-dropdown a:hover {
+            background: rgba(255, 255, 255, 0.16);
+            transform: translateX(1px);
+        }
+        .language-dropdown a.current {
+            font-weight: 700;
+            color: #a8ff7e;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
         @media (max-width: 760px) {
-            .top-bar { flex-direction: column; align-items: stretch; }
-            .language-select { justify-content: center; }
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .language-dropdown {
+                right: auto;
+                left: 0;
+                width: calc(100% - 28px);
+            }
         }
 </style>
 </head>
 <body>
             <div class="top-bar">
         <div class="top-links">
-            <a href="google-login.html" class="button-link">Login</a>
+            <a href="google-login.html" class="button-link">🔐 Login</a>
             <span class="top-divider">|</span>
             <a href="index.html" class="button-link">Index</a>
             <a href="about.html" class="button-link">About</a>
@@ -229,17 +183,22 @@
             <a href="documenting.html" class="button-link">Coding Journey</a>
             <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
         </div>
-        <div class="language-select">
-            <a href="philippines.html" class="lang-link">Philippines</a>
-            <a href="canada.html" class="lang-link">Canada</a>
-            <a href="spanish.html" class="lang-link">Español</a>
-            <a href="german.html" class="lang-link">Deutsch</a>
-            <a href="chinese.html" class="lang-link">中文</a>
-            <a href="japanese.html" class="lang-link">日本語</a>
-            <a href="pig-latin.html" class="lang-link">Pig Latin</a>
-            <a href="dutch.html" class="lang-link">Dutch</a>
+                <div id="language-switcher" class="lang-switcher" onclick="toggleLanguageDropdown()" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-label">English</span>
+            <span class="lang-arrow">▾</span>
+            <div id="language-dropdown" class="language-dropdown">
+                <a href="philippines.html" class="">Philippines</a>
+                <a href="canada.html" class="">Canada</a>
+                <a href="spanish.html" class="">Español</a>
+                <a href="german.html" class="">Deutsch</a>
+                <a href="chinese.html" class="">中文</a>
+                <a href="japanese.html" class="">日本語</a>
+                <a href="pig-latin.html" class="">Pig Latin</a>
+                <a href="dutch.html" class="">Dutch</a>
+            </div>
         </div>
-    </div>
+
 <h1>Coding Journey Documentation</h1>
 
     <p>Day 1 of Coding Documentation Guide.</p>
@@ -275,13 +234,7 @@
                 'Next Step': 'Explore other pages afterward.'
             } }
         };
-        function toggleLanguageMenu() {
-            const menu = document.getElementById('language-menu');
-            if (!menu) return;
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-            const help = document.getElementById('help-menu');
-            if (help) help.style.display = 'none';
-        }
+        
         function toggleHelpMenu() {
             const menu = document.getElementById('help-menu');
             if (!menu) return;
@@ -292,7 +245,7 @@
                 openHelpTab(firstTab);
                 menu.style.display = 'block';
             }
-            const lang = document.getElementById('language-menu');
+            
             if (lang) lang.style.display = 'none';
         }
         function openHelpTab(tab) {
@@ -339,24 +292,12 @@
                 btn.addEventListener('click', () => openHelpTab(btn.dataset.tab));
             });
         }
-        function switchToEnglish() {
-            const pathname = window.location.pathname;
-            showLanguageNotice('Switching to English...');
-            setTimeout(() => {
-                if (pathname.endsWith('-es.html')) {
-                    window.location.href = pathname.replace(/-es\.html$/, '.html');
-                } else {
+         else {
                     window.location.href = 'index.html';
                 }
             }, 600);
         }
-        function switchToSpanish() {
-            const pathname = window.location.pathname;
-            showLanguageNotice('Cambiando a Español...');
-            setTimeout(() => {
-                if (pathname.endsWith('.html') && !pathname.endsWith('-es.html')) {
-                    window.location.href = pathname.replace(/\.html$/, '-es.html');
-                } else {
+         else {
                     window.location.href = 'index-es.html';
                 }
             }, 600);
@@ -370,9 +311,9 @@
             setTimeout(() => { notice.style.opacity = '0'; setTimeout(() => notice.style.display = 'none', 300); }, 1800);
         }
         document.addEventListener('click', (event) => {
-            const langMenu = document.getElementById('language-menu');
+            
             const helpMenu = document.getElementById('help-menu');
-            const langButton = document.querySelector('.language-toggler');
+            
             const helpButton = document.querySelector('.help-button');
             if (langMenu && langButton && !langMenu.contains(event.target) && !langButton.contains(event.target)) {
                 langMenu.style.display = 'none';

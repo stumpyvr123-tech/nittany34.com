@@ -5,13 +5,19 @@
     <link rel="icon" href="Untitled Project.jpg">
     <style>
         body {
-            background-color: rgb(0, 183, 255);
-            font-family: 'Courier New', monospace;
-            color: rgb(225, 0, 255);
+            min-height: 100vh;
             margin: 0;
             padding: 0;
+            font-family: 'Courier New', monospace;
+            color: #f3e7ff;
+            background: url('n34webbg.png') center/cover no-repeat fixed;
+            background-color: #0e1a3f;
+            background-blend-mode: normal;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
-        a {
+
+a {
             color: rgb(212, 0, 255);
         }
         a:hover {
@@ -70,7 +76,30 @@
             margin-top: 10px;
             color: rgb(255, 0, 0);
         }
-    
+
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 0, 0, 0.75);
+            background: linear-gradient(180deg, #080808 0%, #242424 100%);
+            color: rgb(0, 255, 13);
+            text-decoration: none;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+            transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, color 180ms ease;
+            font-size: 0.98rem;
+            letter-spacing: 0.03em;
+        }
+        .button-link:hover {
+            transform: translateY(-1px);
+            background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+            color: #b7ff9e;
+        }
+
         .top-bar {
             display: flex;
             flex-wrap: wrap;
@@ -78,11 +107,12 @@
             align-items: center;
             gap: 14px;
             margin-bottom: 24px;
-            padding: 18px 20px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            border-radius: 20px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            padding: 16px 22px;
+            background: rgba(9, 14, 35, 0.92);
+            border: 1px solid rgba(100, 255, 150, 0.16);
+            border-radius: 18px;
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32);
+            backdrop-filter: blur(14px);
         }
         .top-links {
             display: flex;
@@ -92,43 +122,95 @@
             justify-content: center;
         }
         .top-divider {
-            opacity: 0.6;
+            opacity: 0.55;
             margin: 0 6px;
         }
-        .language-select {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-            width: 100%;
+
+        .lang-switcher {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.08);
+            color: inherit;
+            cursor: pointer;
+            user-select: none;
         }
-        .lang-link {
+        .lang-switcher:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
+        .lang-icon,
+        .lang-arrow {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.16);
-            background: rgba(255,255,255,0.12);
-            color: inherit;
-            text-decoration: none;
-            transition: transform 180ms ease, background 180ms ease;
+        }
+        .lang-icon {
+            font-size: 1.05rem;
+        }
+        .lang-arrow {
             font-size: 0.95rem;
         }
-        .lang-link:hover {
-            transform: translateY(-1px);
-            background: rgba(255,255,255,0.22);
+        .language-dropdown {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 10px);
+            width: 240px;
+            padding: 10px;
+            border-radius: 16px;
+            background: rgba(12, 18, 45, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 20px 46px rgba(0, 0, 0, 0.35);
+            display: none;
+            z-index: 50;
         }
+        .language-dropdown.open {
+            display: block;
+        }
+        .language-dropdown a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 12px;
+            margin: 4px 0;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #f3e7ff;
+            text-decoration: none;
+            transition: background 180ms ease, transform 180ms ease;
+            border: 1px solid transparent;
+        }
+        .language-dropdown a:hover {
+            background: rgba(255, 255, 255, 0.16);
+            transform: translateX(1px);
+        }
+        .language-dropdown a.current {
+            font-weight: 700;
+            color: #a8ff7e;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
         @media (max-width: 760px) {
-            .top-bar { flex-direction: column; align-items: stretch; }
-            .language-select { justify-content: center; }
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .language-dropdown {
+                right: auto;
+                left: 0;
+                width: calc(100% - 28px);
+            }
         }
 </style>
 </head>
 <body>
             <div class="top-bar">
         <div class="top-links">
-            <a href="google-login.html" class="button-link">Login</a>
+            <a href="google-login.html" class="button-link">🔐 Login</a>
             <span class="top-divider">|</span>
             <a href="index.html" class="button-link">Index</a>
             <a href="about.html" class="button-link">About</a>
@@ -136,17 +218,22 @@
             <a href="documenting.html" class="button-link">Coding Journey</a>
             <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
         </div>
-        <div class="language-select">
-            <a href="philippines.html" class="lang-link">Philippines</a>
-            <a href="canada.html" class="lang-link">Canada</a>
-            <a href="spanish.html" class="lang-link">Español</a>
-            <a href="german.html" class="lang-link">Deutsch</a>
-            <a href="chinese.html" class="lang-link">中文</a>
-            <a href="japanese.html" class="lang-link">日本語</a>
-            <a href="pig-latin.html" class="lang-link">Pig Latin</a>
-            <a href="dutch.html" class="lang-link">Dutch</a>
+                <div id="language-switcher" class="lang-switcher" onclick="toggleLanguageDropdown()" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-label">English</span>
+            <span class="lang-arrow">▾</span>
+            <div id="language-dropdown" class="language-dropdown">
+                <a href="philippines.html" class="">Philippines</a>
+                <a href="canada.html" class="">Canada</a>
+                <a href="spanish.html" class="">Español</a>
+                <a href="german.html" class="">Deutsch</a>
+                <a href="chinese.html" class="">中文</a>
+                <a href="japanese.html" class="">日本語</a>
+                <a href="pig-latin.html" class="">Pig Latin</a>
+                <a href="dutch.html" class="">Dutch</a>
+            </div>
         </div>
-    </div>
+
 <div class="container">
         <h1>Google Account Login</h1>
         <p>Type your Google email below and sign in. This keeps the original site styling and removes extra clutter.</p>
@@ -172,5 +259,21 @@
             window.location.href = 'google-dashboard.html';
         });
     </script>
+    <script>
+        function toggleLanguageDropdown() {
+            const menu = document.getElementById('language-dropdown');
+            if (!menu) return;
+            menu.classList.toggle('open');
+        }
+        document.addEventListener('click', event => {
+            const switcher = document.getElementById('language-switcher');
+            const menu = document.getElementById('language-dropdown');
+            if (!menu || !switcher) return;
+            if (!switcher.contains(event.target)) {
+                menu.classList.remove('open');
+            }
+        });
+    </script>
+
 </body>
 </html>
