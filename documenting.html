@@ -218,22 +218,6 @@
             <a href="documenting.html" class="button-link">Coding Journey</a>
             <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
         </div>
-                <div id="language-switcher" class="lang-switcher" onclick="toggleLanguageDropdown()" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class="lang-icon">🌐</span>
-            <span class="lang-label">English</span>
-            <span class="lang-arrow">▾</span>
-            <div id="language-dropdown" class="language-dropdown">
-                <a href="philippines-documenting.html" class="">Philippines</a>
-                <a href="canada-documenting.html" class="">Canada</a>
-                <a href="spanish-documenting.html" class="">Español</a>
-                <a href="german-documenting.html" class="">Deutsch</a>
-                <a href="chinese-documenting.html" class="">中文</a>
-                <a href="japanese-documenting.html" class="">日本語</a>
-                <a href="pig-latin-documenting.html" class="">Pig Latin</a>
-                <a href="dutch-documenting.html" class="">Dutch</a>
-            </div>
-        </div>
-
 <h1>Coding Journey Documentation</h1>
 
     <p>Day 1 of Coding Documentation Guide.</p>
@@ -318,23 +302,12 @@
                 btn.classList.toggle('active', btn.dataset.subtab === subtab);
             });
         }
-        function buildHelpTabs() {
+        function buildHelpTabs() {}
             const tabs = document.querySelectorAll('.help-tab');
             if (!tabs.length) return;
-            tabs.forEach(btn => {
+            tabs.forEach()btn => {}
                 btn.addEventListener('click', () => openHelpTab(btn.dataset.tab));
-            });
-        }
-         else {
-                    window.location.href = 'index.html';
-                }
-            }, 600);
-        }
-         else {
-                    window.location.href = 'index-es.html';
-                }
-            }, 600);
-        }
+      
         function showLanguageNotice(message) {
             const notice = document.getElementById('language-notice');
             if (!notice) return;

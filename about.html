@@ -123,73 +123,7 @@
             opacity: 0.55;
             margin: 0 10px;
         }
-        .lang-switcher {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 14px;
-            padding: 12px 16px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background: rgba(255, 255, 255, 0.08);
-            color: inherit;
-            cursor: pointer;
-            user-select: none;
-        }
-        .lang-switcher:hover {
-            background: rgba(255, 255, 255, 0.14);
-        }
-        .lang-icon,
-        .lang-arrow {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .lang-icon {
-            font-size: 1.05rem;
-        }
-        .lang-arrow {
-            font-size: 0.95rem;
-        }
-        .language-dropdown {
-            position: absolute;
-            right: 0;
-            top: calc(100% + 12px);
-            width: 270px;
-            padding: 12px;
-            border-radius: 16px;
-            background: rgba(12, 18, 45, 0.98);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            box-shadow: 0 20px 46px rgba(0, 0, 0, 0.35);
-            display: none;
-            z-index: 50;
-        }
-        .language-dropdown.open {
-            display: block;
-        }
-        .language-dropdown a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 10px 12px;
-            margin: 8px 0;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.06);
-            color: #f3e7ff;
-            text-decoration: none;
-            transition: background 180ms ease, transform 180ms ease;
-            border: 1px solid transparent;
-        }
-        .language-dropdown a:hover {
-            background: rgba(255, 255, 255, 0.16);
-            transform: translateX(1px);
-        }
-        .language-dropdown a.current {
-            font-weight: 700;
-            color: #a8ff7e;
-            background: rgba(255, 255, 255, 0.12);
-        }
+      
         @media (max-width: 760px) {
             .top-bar {
                 flex-direction: column;
@@ -219,22 +153,7 @@
             <a href="documenting.html" class="button-link">Coding Journey</a>
             <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
         </div>
-                <div id="language-switcher" class="lang-switcher" onclick="toggleLanguageDropdown()" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class="lang-icon">🌐</span>
-            <span class="lang-label">English</span>
-            <span class="lang-arrow">▾</span>
-            <div id="language-dropdown" class="language-dropdown">
-                <a href="philippines-about.html" class="">Philippines</a>
-                <a href="canada-about.html" class="">Canada</a>
-                <a href="spanish-about.html" class="">Español</a>
-                <a href="german-about.html" class="">Deutsch</a>
-                <a href="chinese-about.html" class="">中文</a>
-                <a href="japanese-about.html" class="">日本語</a>
-                <a href="pig-latin-about.html" class="">Pig Latin</a>
-                <a href="dutch-about.html" class="">Dutch</a>
-            </div>
-        </div>
-
+           
 <h1>About This Website</h1>
 
 <h2>A quick look at what this place is for.</h2>
@@ -327,32 +246,12 @@ I’ll keep adding new pages and tweaks over time.
                 btn.classList.toggle('active', btn.dataset.subtab === subtab);
             });
         }
-        function buildHelpTabs() {
+        function buildHelpTabs() {}
             const tabs = document.querySelectorAll('.help-tab');
             if (!tabs.length) return;
             tabs.forEach(btn => {
                 btn.addEventListener('click', () => openHelpTab(btn.dataset.tab));
-            });
-        }
-         else {
-                    window.location.href = 'index.html';
-                }
-            }, 600);
-        }
-         else {
-                    window.location.href = 'index-es.html';
-                }
-            }, 600);
-        }
-        function showLanguageNotice(message) {
-            const notice = document.getElementById('language-notice');
-            if (!notice) return;
-            notice.textContent = message;
-            notice.style.display = 'block';
-            notice.style.opacity = '1';
-            setTimeout(() => { notice.style.opacity = '0'; setTimeout(() => notice.style.display = 'none', 300); }, 1800);
-        }
-        document.addEventListener('click', (event) => {
+    
             
             const helpMenu = document.getElementById('help-menu');
             
