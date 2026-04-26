@@ -163,39 +163,84 @@
             font-size: 0.95rem;
             line-height: 1.5;
         }
+
+        .top-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            padding: 18px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 20px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+        }
+        .top-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+        .top-divider {
+            opacity: 0.6;
+            margin: 0 6px;
+        }
+        .language-select {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            width: 100%;
+        }
+        .lang-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.16);
+            background: rgba(255,255,255,0.12);
+            color: inherit;
+            text-decoration: none;
+            transition: transform 180ms ease, background 180ms ease;
+            font-size: 0.95rem;
+        }
+        .lang-link:hover {
+            transform: translateY(-1px);
+            background: rgba(255,255,255,0.22);
+        }
+        @media (max-width: 760px) {
+            .top-bar { flex-direction: column; align-items: stretch; }
+            .language-select { justify-content: center; }
+        }
 </style>
 </head>
 
-<body>        
-
-    <div style="position: relative; text-align: center; margin-bottom: 20px;">
-        <button onclick="toggleLanguageMenu()" class="button-link language-toggler" type="button">
-            <span class="globe">🌐</span>
-            <span class="language-label">Español</span>
-            <span class="language-arrow">▼</span>
-        </button>
-        <button onclick="toggleHelpMenu()" class="button-link help-button" type="button">?</button>
-        <div id="language-menu" class="language-menu">
-            <button onclick="switchToEnglish()" class="button-link" type="button">English</button>
-            <button onclick="switchToSpanish()" class="button-link" type="button">Español</button>
+<body>
+            <div class="top-bar">
+        <div class="top-links">
+            <a href="google-login.html" class="button-link">Login</a>
+            <span class="top-divider">|</span>
+            <a href="index.html" class="button-link">Index</a>
+            <a href="about.html" class="button-link">About</a>
+            <a href="system-requirements.html" class="button-link">System Requirements</a>
+            <a href="documenting.html" class="button-link">Coding Journey</a>
+            <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
         </div>
-        <div id="help-menu" class="help-menu">
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; gap:10px;">
-                <div style="font-weight:bold; font-size:1rem;">Menú de ayuda</div>
-                <button onclick="toggleHelpMenu()" style="background:none; border:none; font-size:1.2rem; cursor:pointer;">×</button>
-            </div>
-            <div class="help-tabs">
-                <button class="help-tab" type="button" data-tab="what" onclick="openHelpTab('what')">¿Qué es esto?</button>
-                <button class="help-tab" type="button" data-tab="purpose" onclick="openHelpTab('purpose')">Propósito</button>
-                <button class="help-tab" type="button" data-tab="navigation" onclick="openHelpTab('navigation')">Navegación</button>
-                <button class="help-tab" type="button" data-tab="faq" onclick="openHelpTab('faq')">Preguntas</button>
-            </div>
-            <div id="help-submenu" class="help-submenu"></div>
-            <div id="help-content" class="help-content"></div>
+        <div class="language-select">
+            <a href="philippines.html" class="lang-link">Philippines</a>
+            <a href="canada.html" class="lang-link">Canada</a>
+            <a href="spanish.html" class="lang-link">Español</a>
+            <a href="german.html" class="lang-link">Deutsch</a>
+            <a href="chinese.html" class="lang-link">中文</a>
+            <a href="japanese.html" class="lang-link">日本語</a>
+            <a href="pig-latin.html" class="lang-link">Pig Latin</a>
+            <a href="dutch.html" class="lang-link">Dutch</a>
         </div>
-        <div id="language-notice" class="language-notice"></div>
     </div>
-
 <h1>Acerca de este sitio web</h1>
 
 <h2>Esta página explica de qué se trata este sitio.</h2>
