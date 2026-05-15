@@ -210,11 +210,11 @@
 <body>
             <div class="top-bar">
         <div class="top-links">
-            <a href="google-login.html" class="button-link">🔐 Login</a>
+            
             <span class="top-divider">|</span>
-            <a href="index.html" class="button-link">Index</a>
+            <a href="index.html" class="button-link">Back Home</a>
             <a href="about.html" class="button-link">About</a>
-            <a href="system-requirements.html" class="button-link">System Requirements</a>
+           
             <a href="documenting.html" class="button-link">Coding Journey</a>
             <a href="https://www.youtube.com/@Nittany34YT" target="_blank" class="button-link">My channel</a>
         </div>
@@ -305,9 +305,10 @@
         function buildHelpTabs() {}
             const tabs = document.querySelectorAll('.help-tab');
             if (!tabs.length) return;
-            tabs.forEach()btn => {}
+            tabs.forEach((btn) => {
                 btn.addEventListener('click', () => openHelpTab(btn.dataset.tab));
-      
+            });
+        
         function showLanguageNotice(message) {
             const notice = document.getElementById('language-notice');
             if (!notice) return;
