@@ -1,15 +1,75 @@
-<h1> Connecting to nittany34.com. This screen is for safety purposes.</h1>
+<h1> Welcome to the help for Nittany34.com</h1>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <script>
-    setTimeout(function() {
-        window.location.href = "https://nittany34.com";
-    }, 800); // 800 milliseconds = 0.8 seconds
-</script>
+
+
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .collapsible {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    padding: 14px;
+    width: 200px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+  }
+
+  .collapsible:hover {
+    background-color: #555;
+  }
+
+  .content {
+    padding: 10px;
+    display: none;
+    background-color: #f1f1f1;
+    width: 180px;
+  }
+</style>
 </head>
+
 <body>
-    <p>If you are not redirected automatically, the website may be down or click this <a href="https://nittany34.com" class="button-link">link</a>.</p>
+
+<button class="collapsible">Navigation guide</button>
+
+<div class="content">
+  <p1> BUTTONS: Click on a button to navigate to it.
+    COLLAPSABLE MENUS: Click on the button to expand the menu, then click on the link to navigate to it.
+    CLOUDFLARE SECURITY CAPTCHA: If you see a Cloudflare CAPTCHA, complete it to proceed to the page.
+
+  </p1>
+</div>
+
+<script>
+  const button = document.querySelector(".collapsible");
+  const content = document.querySelector(".content");
+
+  button.addEventListener("click", function() {
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
 </body>
 </html>
+
