@@ -9,9 +9,11 @@
   </div>
 </div>
 
-    <script>
-  if (window.location.hostname === "help.nittany34.com") {
-    window.location.replace("intigtate.html");
+   <script>
+  const host = window.location.hostname.toLowerCase();
+
+  if (host === "help.nittany34.com" || host === "www.help.nittany34.com") {
+    window.location.href = "/intigtate.html";
   }
 </script>
 
