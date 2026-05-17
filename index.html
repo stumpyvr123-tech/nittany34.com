@@ -14,23 +14,12 @@ Developer Test: HELP
   </div>
 </div>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Redirecting</title>
 
-  <script>
-    setTimeout(function () {
-      window.location.href = "intigtate.html";
-    }, 200);
-  </script>
-</head>
-
-<body>
-  Redirecting...
-</body>
-</html>
+<script>
+  if (window.location.pathname === "/help") {
+    window.location.href = "/intigtate.html";
+  }
+</script>
 
     <title>Welcome to nittany34.com!</title>
     <link rel="icon" href="Untitled Project.jpg">
