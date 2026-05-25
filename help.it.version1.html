@@ -54,7 +54,7 @@
 
 <script>
   // Select all collapsible buttons
-  const collapsibles = document.querySelectorAll(".collapsible");
+  const collapsible = document.querySelectorAll(".collapsible");
 
   collapsibles.forEach(button => {
     button.addEventListener("click", function () {
@@ -89,15 +89,31 @@
 </style>
 
 
+<button class="collapsible">Feedback?</button>
+<div class="content">
+  <p>
+    Feedback? Click this link to give feedback on the website: <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_cLiXhMg_vE-S9K6djyDQ1pQiCvgn1YVTNAfMvdEliClWug/viewform?usp=header" class="button">Feedback</a>
+
+  </p>
+</div>
 
 
+<script>
+  // Select all collapsible buttons
+  const collapsibles = document.querySelectorAll(".collapsible");
 
+  collapsibles.forEach(button => {
+    button.addEventListener("click", function () {
+      const content = this.nextElementSibling;
 
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  });
 </script>
-
-
-
-
 
 
 
@@ -311,7 +327,7 @@
 </style>
 </head>
 <body>
-<a href="redirectfeedback.html" target="_blank" class="button-link">Feedback?</a>
+
     
         
 
