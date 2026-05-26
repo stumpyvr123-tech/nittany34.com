@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<!-- Basic Preview -->
-<meta property="og:title" content="nittany34.com" />
-<meta property="og:description" content="The site of my youtube: @nittany34yt" />
-<meta property="og:image" content="https://nittany34.com/img/n34webbg.png" />
-<meta property="og:url" content="https://nittany34.com" />
+<title> Status </title>
 
+<h1> Status</h1>
+<h2> Experencing some redirection issues, the cause is unknown, this is being investiaged and will be resolved asap!</h2>
 
-
-
-    <div class="top-banner">
-  <div class="banner-content"> 
-    <p>  </p> <strong>This website is undergoing some issues that are being investigated! </strong> <a href="/explore/help/status.html" target="_blank" class="button-link">Learn More</a></p>
-  </div>
-
-</div>
-
-
-
-    <title>Nittany34.com official site!</title>
-    <link rel="icon" href="Untitled Project.jpg">
-            <style>
+ <style>
         body {
             min-height: 100vh;
             margin: 0;
@@ -30,10 +12,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            font-family: 'Courier New', monospace;
-            color: #f3e7ff;
-            background: url('n34webbg.png') center/cover no-repeat fixed;
-            background-color: #0e1a3f;
+            font-family: 'Courier New', bold, monospace;
+            color: #000000;
+            background-color: #ffae00;
             background-blend-mode: normal;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
@@ -224,20 +205,58 @@
             }
         }
 </style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<style>
+body {
+  margin: 0;
+  background: orange;
+}
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+
+  top: 12px;
+  left: 748px;
+
+  box-shadow: 0 0 10px red;
+}
+
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: red;
+  animation: ping 1.5s infinite;
+  opacity: 0.7;
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+</style>
 </head>
+
 <body>
-    <div class="screen">
-        <h1>Welcome</h1>
-        <p>Choose a page below to continue.</p>
-        <div class="button-row">
-            <a href="about.html" class="button-link">About</a>
-            <a href="documenting.html" class="button-link">Coding Journey</a>
-            <a href="warnschool.html" target="_blank" class="button-link">My channel</a>
-            <a href="https://linktr.ee/noahburr" target="_blank" class="button-link">LinkTree</a>
-            <a href="help.it.version1.html" target="_blank" class="button-link">Need Help?</a>
-            <a href="/ref/deliver/memepage/main.html" target="_blank" class="button-link">Meme Page</a>
-            
-        </div>
-    </div>
-    </body>
+
+<div class="status-dot"></div>
+
+</body>
 </html>
