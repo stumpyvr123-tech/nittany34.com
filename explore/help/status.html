@@ -1,9 +1,8 @@
 <title> Status </title>
 
 <h1> Status</h1>
-<h2> Experencing some redirection issues, the cause is unknown, this is being investigated and will be resolved asap!</h2>
-<h2> I am also receiving feedback about the site being slow/not loading, I am investigating this as well!</h2>
- <style>
+<h2> All Systems Operational!</h2>
+<style>
         body {
             min-height: 100vh;
             margin: 0;
@@ -211,31 +210,40 @@
 <head>
 <meta charset="UTF-8">
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+
 <style>
 body {
   margin: 0;
-  background: rgb(78, 71, 220);
+  background: rgb(32, 129, 153);
+  overflow: hidden;
 }
 
+/* COMPUTER POSITION */
 .status-dot {
   width: 14px;
   height: 14px;
-  background: rgb(235, 154, 14);
+  background: rgb(17, 255, 0);
   border-radius: 50%;
   position: absolute;
 
   top: 12px;
   left: 748px;
 
-  box-shadow: 0 0 10px rgb(255, 170, 0);
+  box-shadow: 0 0 10px rgb(0, 255, 94);
 }
 
+/* PULSE */
 .status-dot::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: rgb(255, 149, 0);
+  background: rgb(17, 255, 0);
   animation: ping 1.5s infinite;
   opacity: 0.7;
 }
@@ -251,10 +259,24 @@ body {
     opacity: 0;
   }
 }
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .status-dot {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 12px;
+  }
+}
 </style>
 </head>
 
 <body>
+
+<div class="status-dot"></div>
+
+</body>
+</html>
 
 <div class="status-dot"></div>
 
