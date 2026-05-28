@@ -1,4 +1,81 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+/* Push page down so banner doesn't cover content */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 60px;
+}
+
+/* Main banner container */
+.top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    z-index: 9999;
+}
+
+/* Red side */
+.top-banner .left {
+    background: #e63946;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Blue side */
+.top-banner .right {
+    background: #1d4ed8;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Links */
+.top-banner a {
+    color: white;
+    text-decoration: underline;
+    margin: 0 8px;
+}
+
+.top-banner a:hover {
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-banner">
+    <div class="bottom-middle">
+        🔴 Important: SITE IS SHUTTING DOWN TEMPORARILY!! PLEASE CLICK HERE TO VIEW MORE  <a href="https://nittany34.com" target="_blank">Learn More</a>
+    </div>
+
+    
+</div>
+
+
+
+
+<!DOCTYPE html>
 <html>
 <head>
 <!-- Basic Preview -->
@@ -602,12 +679,7 @@ function showEvent(date, event){
 </body>
 </html>
 
-    <div class="top-banner">
-  <div class="banner-content"> 
-    <p>  </p> <strong>Website undergoing scheduled maintenance for a BIG UPDATE! To see when it releases click here "->>" </strong> <a href="/explore/help/status.html" target="_blank" class="button-link">Learn More</a></p>
-  </div>
-
-</div>
+    
 
 
 
@@ -693,8 +765,8 @@ function showEvent(date, event){
             padding: 12px 20px;
             border-radius: 12px;
             border: 2px solid rgba(0, 0, 0, 0.75);
-            background: linear-gradient(180deg, #080808 0%, #242424 100%);
-            color: rgb(0, 255, 13);
+            background: linear-gradient(180deg, #8d0cea64 0%, #f9030367 100%);
+            color: rgb(255, 0, 0);
             text-decoration: none;
             box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
             transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, color 180ms ease;
@@ -703,7 +775,7 @@ function showEvent(date, event){
         }
         .button-link:hover {
             transform: translateY(-1px);
-            background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+            background: linear-gradient(180deg, #a910eba0 0%, #ff000065 100%);
             box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
             color: #b7ff9e;
         }
