@@ -1,151 +1,4 @@
-<h1> Welcome to the help for Nittany34.com</h1>
-
-
-
 <style>
-  body {
-    font-family: Arial, sans-serif;
-  }
-
-  .collapsible {
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-    padding: 14px;
-    width: 200px;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 16px;
-  }
-
-  .collapsible:hover {
-    background-color: #555;
-  }
-
-  .content {
-    padding: 10px;
-    display: none;
-    background-color: #000000;
-    width: 180px;
-  }
-</style>
-</head>
-
-<body>
-
-<button class="collapsible">Navigation Guide</button>
-<div class="content">
-  <p>
-    BUTTONS: Click on a button to navigate to it.<br>
-    COLLAPSIBLE MENUS: Click on the button to expand the menu, then click on the link to navigate to it.<br>
-    CLOUDFLARE SECURITY CAPTCHA: If you see a Cloudflare CAPTCHA, complete it to proceed to the page.
-  </p>
-</div>
-
-<button class="collapsible">Website's Servers</button>
-<div class="content">
-  <p>
-   The website's servers are not very fast... so don't expect crazy speeds
-   i'm very broke ok???!?!?!<br>
-  
-  </p>
-</div>
-
-<script>
-  // Select all collapsible buttons
-  const collapsible = document.querySelectorAll(".collapsible");
-
-  collapsibles.forEach(button => {
-    button.addEventListener("click", function () {
-      const content = this.nextElementSibling;
-
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  });
-</script>
-
-<style>
-  .collapsible {
-    background-color: #f4f2f2;
-    color: rgb(255, 0, 0);
-    cursor: pointer;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    margin-top: 5px;
-  }
-
-  .content {
-    display: none;
-    padding: 10px;
-    background-color: #f57c7c;
-  }
-</style>
-
-
-<button class="collapsible">Feedback?</button>
-<div class="content">
-  <p>
-    Feedback? Click this link to give feedback on the website: <a href="redirectfeedback.html" class="button">Feedback</a>
-
-  </p>
-</div>
-
-<button class="collapsible">Site Map</button>
-<div class="content">
-  <p>
-    Visit the sitemap! <a href="sitemap.html" target="_blank">Site Map</a>
-  </p>
-</div>
-
-<script>
-  // Select all collapsible buttons
-  const collapsible = document.querySelectorAll(".collapsible");
-
-  collapsibles.forEach(button => {
-    button.addEventListener("click", function () {
-      const content = this.nextElementSibling;
-
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  });
-</script>
-
-<script>
-  // Select all collapsible buttons
-  const collapsibles = document.querySelectorAll(".collapsible");
-
-  collapsibles.forEach(button => {
-    button.addEventListener("click", function () {
-      const content = this.nextElementSibling;
-
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  });
-</script>
-
-
-
-
-
-</body>
-</html>
-<link rel="icon" href="Untitled Project.jpg">
-            <style>
         body {
             min-height: 100vh;
             margin: 0;
@@ -157,7 +10,7 @@
             font-family: 'Courier New', monospace;
             color: #f3e7ff;
             background: url('n34webbg.jpg') center/cover no-repeat fixed;
-            background-color: #daec3fa5;
+            background-color: #0e1a3f;
             background-blend-mode: normal;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
@@ -225,8 +78,8 @@
             padding: 12px 20px;
             border-radius: 12px;
             border: 2px solid rgba(0, 0, 0, 0.75);
-            background: linear-gradient(180deg, #080808 0%, #242424 100%);
-            color: rgb(0, 255, 13);
+            background: linear-gradient(180deg, #ff00c8 0%, #ffea00 100%);
+            color: rgb(0, 0, 0);
             text-decoration: none;
             box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
             transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, color 180ms ease;
@@ -235,7 +88,7 @@
         }
         .button-link:hover {
             transform: translateY(-1px);
-            background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+            background: linear-gradient(180deg, #a910eba0 0%, #ff000065 100%);
             box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
             color: #b7ff9e;
         }
@@ -348,10 +201,23 @@
             }
         }
 </style>
-</head>
-<body>
 
-    
-        
+<h1> Site Map </h1>
+<a href="Site map.png" class="box-link">Site Map</a>
 
+<style>
+.box-link {
+    display: inline-block;
+    padding: 10px 18px; /* box size */
+    background: #920ab8; /* box color */
+    color: white; /* text color */
+    text-decoration: none;
+    border-radius: 8px; /* rounded corners */
+    font-family: sans-serif;
+    transition: 0.2s;
+}
 
+.box-link:hover {
+    background: #1f56b5; /* hover color */
+}
+</style>
