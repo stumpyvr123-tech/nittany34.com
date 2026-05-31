@@ -203,21 +203,58 @@
 </style>
 
 <h1> Site Map </h1>
-<a href="Site map.png" class="box-link">Site Map</a>
+<a href="#" class="box-link" onclick="openPopup()">Sitemap</a>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h3>Continue to sitemap?</h3>
+        <button onclick="window.location.href='Site map.png'">Continue</button>
+        <button onclick="closePopup()">Cancel</button>
+    </div>
+</div>
 
 <style>
 .box-link {
     display: inline-block;
-    padding: 10px 18px; /* box size */
-    background: #920ab8; /* box color */
-    color: white; /* text color */
+    padding: 10px 18px;
+    background: #2d6cdf;
+    color: white;
     text-decoration: none;
-    border-radius: 8px; /* rounded corners */
-    font-family: sans-serif;
-    transition: 0.2s;
+    border-radius: 8px;
 }
 
-.box-link:hover {
-    background: #1f56b5; /* hover color */
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(193, 17, 190, 0.944);
+    z-index: 9999;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #470ab2;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.popup-content button {
+    margin: 5px;
+    padding: 8px 16px;
 }
 </style>
+
+<script>
+function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+}
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
+</script>
