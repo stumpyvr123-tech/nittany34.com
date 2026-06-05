@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Search Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 30px; background-color: #f4f4f4; }
+        /* Style the search bar container */
+        .search-container { background: white; padding: 20px; border-radius: 8px; max-width: 500px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        /* Style the input text box */
+        input[type="text"] { width: 70%; padding: 12px; font-size: 16px; border: 2px solid #ccc; border-radius: 4px; }
+        /* Style the actual clickable submit button */
+        input[type="submit"] { width: 25%; padding: 12px; font-size: 16px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        input[type="submit"]:hover { background-color: #004ea3; }
+        /* Style the results list links */
+        #searchResults { list-style: none; padding: 0; margin-top: 20px; }
+        #searchResults li { padding: 12px; background: #e6f2ff; margin-bottom: 8px; border-radius: 4px; border-left: 5px solid #0066cc; }
+        #searchResults a { text-decoration: none; color: #0066cc; font-weight: bold; font-size: 18px; display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <h2>Search My Website</h2>
+        
+        <!-- Standard HTML Form -->
+        <form id="searchForm" onsubmit="runSearch(event)">
+            <!-- The text input box -->
+            <input type="text" id="searchInput" placeholder="Type home, about, meme, or credits...">
+            
+            <!-- The physical submit button -->
+            <input type="submit" value="Search">
+        </form>
+        
+        <!-- Target area for links -->
+        <ul id="searchResults"></ul>
+    </div>
+
+    <script>
+    // Database of your pages
+    const pages = [
+        { title: "Home", url: "index.html" },
+        { title: "About", url: "aboutme.html" },
+        { title: "Memepage", url: "memepage.html" },
+        { title: "Credits", url: "documentation/credits" }
+    ];
+
+    function runSearch(event) {
+        // Prevent the form from refreshing the page when clicked
+        event.preventDefault(); 
+        
+        const query = document.getElementById("searchInput").value.toLowerCase().trim();
+        const resultsList = document.getElementById("searchResults");
+        
+        // Clear screen
+        resultsList.innerHTML = "";
+
+        if (query === "") {
+            resultsList.innerHTML = "<li>Please type a word first.</li>";
+            return;
+        }
+
+        // Match typed text to list titles
+        const matches = pages.filter(page => 
+            page.title.toLowerCase().includes(query)
+        );
+
+        // Print results to screen
+        if (matches.length === 0) {
+            resultsList.innerHTML = "<li>No pages found. Try 'meme' or 'home'.</li>";
+        } else {
+            matches.forEach(page => {
+                const li = document.createElement("li");
+                li.innerHTML = `<a href="${page.url}">Click Here to Open: ${page.title} Page</a>`;
+                resultsList.appendChild(li);
+            });
+        }
+    }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .button-link {
+    color: white;
+    background-color: blue;
+   margin-left: 2px;
+   font-family: Arial;
+   padding: 10px;
+  }
+
+
+  .button-link:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+   margin-left: 2px;
+   font-family: Arial;
+   padding: 10px;
+  }
+
+  
+  
+</style>
+
+<style>
+  body {
+    font-family: Arial;
+    background-color: rgb(208, 205, 205);
+  }
+
+
+  .gosearch {
+   color: white;
+    background-color: blue;
+   margin-left: 2px;
+   font-family: Arial;
+   padding: 10px;
+  }
+
+</style>
