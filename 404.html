@@ -41,3 +41,125 @@
 </style>
 
 <title> Oh no...</title>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+   
+</head>
+<body>
+
+    <div class="search-container">
+        
+        
+        <!-- Standard HTML Form -->
+        <form id="searchForm" onsubmit="runSearch(event)">
+            <!-- The text input box -->
+            <input type="text" id="searchInput" placeholder="Type home, about, meme, or credits...">
+            
+            <!-- The physical submit button -->
+            <input type="submit" value="Search">
+        </form>
+        
+        <!-- Target area for links -->
+        <ul id="searchResults"></ul>
+    </div>
+
+    <script>
+    // pages hehehelolololol,olololololol
+    const pages = [
+        { title: "Home", url: "index.html" },
+        { title: "About", url: "aboutme.html" },
+        { title: "Memepage", url: "memepage.html" },
+        { title: "Credits", url: "documentation/credits" }
+    ];
+
+    function runSearch(event) {
+        // Prevent the form from refreshing the page when clicked
+        event.preventDefault(); 
+        
+        const query = document.getElementById("searchInput").value.toLowerCase().trim();
+        const resultsList = document.getElementById("searchResults");
+        
+        // Clear screen
+        resultsList.innerHTML = "";
+
+        if (query === "") {
+            resultsList.innerHTML = "<li>Please type a word first.</li>";
+            return;
+        }
+
+        // Match typed text to list titles
+        const matches = pages.filter(page => 
+            page.title.toLowerCase().includes(query)
+        );
+
+        // Print results to screen
+        if (matches.length === 0) {
+            resultsList.innerHTML = "<li>No pages found. Try 'meme' or 'home'.</li>";
+        } else {
+            matches.forEach(page => {
+                const li = document.createElement("li");
+                li.innerHTML = `<a href="${page.url}">Click Here to Open: ${page.title} Page</a>`;
+                resultsList.appendChild(li);
+            });
+        }
+    }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .button-link {
+    color: white;
+    background-color: blue;
+   margin-left: 2px;
+   font-family: Arial;
+   padding: 10px;
+  }
+
+
+  .button-link:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+   margin-left: 2px;
+   font-family: Arial;
+   padding: 10px;
+  }
+
+  
+  
+</style>
+
+<style>
+  body {
+    font-family: Arial;
+    background-color: rgb(208, 205, 205);
+  }
+
+
+  .gosearch {
+   color: white;
+    background-color: blue;
+   margin-left: 2px;
+   font-family: Arial;
+   padding: 10px;
+  }
+
+</style>
