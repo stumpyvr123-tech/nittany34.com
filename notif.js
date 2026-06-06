@@ -1,1 +1,1 @@
-alert("Servers will be shutting down for scheduled maitinence in less than 1 day.")
+alert("The servers will be shutting down in about 12 hours for scheduled maitinence.")
