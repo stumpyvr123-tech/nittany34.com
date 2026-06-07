@@ -65,27 +65,48 @@
 
 
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <style>
-        body {
-            /* Using a live internet image to test */
-            background-image: url('images/bg.png');
-            background-size: cover;
-            background-position: center;
-        
-            background-attachment: fixed;
-            min-height: 100vh;
+        html, body {
+            /* Prevents layout collapse across different browsers */
+            height: 100%;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* 1. FALLBACK: Dark gray background if the image fails to load */
+            background-color: #1a1a1a;
+
+            /* 2. LIVE TEST IMAGE: Replace this link with your local file path later */
+            background-image: url('images/bg.png');
+
+            /* 3. PERFECT FIT: Scales, centers, and stops image repetition */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            /* 4. SCROLL FIX: Keeps background fixed on desktop, plays nice with mobile */
+            background-attachment: fixed;
+
+            /* 5. HEIGHT FIX: Forces body to take up at least the full screen height */
+            min-height: 100vh;
+            width: 100%;
         }
     </style>
 </head>
 <body>
+
+    <!-- Your content here -->
+
 </body>
 </html>
+
 
     
         
