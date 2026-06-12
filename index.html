@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+   
+<div class="hover-box">
+
+  <p class="hidden-text">...to make this paragraph appear!</p>
+</div>
+
 
     <style>
       .button-link {
@@ -17,9 +23,40 @@
         margin-left: 2px;
         font-family: Arial;
         padding: 10px;
-        transition: 300ms;
+        transition: 310ms;
         border-radius: 13px;
         text-decoration: none;
+        margin-top: 70px;
+        
+      }
+
+      hover-box:hover {
+          color: rgb(255, 255, 255);
+        background-color: rgb(85, 85, 212);
+        margin-left: 2px;
+        font-family: Arial;
+        padding: 10px;
+        transition: 310ms;
+        border-radius: 13px;
+        text-decoration: none;
+        margin-top: 70px;
+        display: block;
+      }
+      
+      
+   
+.hidden-text {
+  display: none;
+}
+
+
+.hover-box:hover .hidden-text {
+  display: block;
+}
+
+
+        .hover-container:hover .hidden-element {
+     display: block;
       }
 
       .titleimg {
@@ -37,9 +74,9 @@
         font-family: Arial;
         padding: 10px;
         size: 40px;
-        text-decoration: none;
-        font-size-adjust: 40px;
-        size-adjust: 40px;
+        font-size: 25px;
+        text-shadow: 20px;
+        
       }
 
       .comic-relief-regular {
