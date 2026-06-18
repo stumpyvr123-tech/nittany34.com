@@ -1,0 +1,107 @@
+<style>
+  body {
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3px;
+    font-family: 'Times New Roman', Times, serif;
+
+  }
+
+  .dateenter {
+    color: white;
+    background-color: black;
+  }
+</style>
+
+
+<!-- HTML Elements -->
+<label for="dob">Enter your Date of Birth:</label>
+<input type="date" id="dob" name="dob">
+<!-- Wrap button in a link tag -->
+<a href="successage.html" id="done-link" style="text-decoration: none;">
+  <button type="button" id="done-btn" disabled>Done</button>
+</a>
+<p id="age-error" style="color: red; display: none;">You must be at least 9 years old to proceed.</p>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dobInput = document.getElementById('dob');
+    const doneBtn = document.getElementById('done-btn');
+    const doneLink = document.getElementById('done-link');
+    const errorMsg = document.getElementById('age-error');
+
+    dobInput.addEventListener('input', function () {
+      if (!this.value) {
+        doneBtn.disabled = true;
+        doneLink.style.pointerEvents = 'none'; // Blocks the link click
+        return;
+      }
+
+      const birthDate = new Date(this.value);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      if (age < 9) {
+        doneBtn.disabled = true;
+        doneLink.style.pointerEvents = 'none'; // Disables link
+        errorMsg.style.display = 'block';
+      } else {
+        doneBtn.disabled = false;
+        doneLink.style.pointerEvents = 'auto'; // Enables link
+        errorMsg.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<p id="age-error" style="color: red; display: none;">You must be at least 9 years old to proceed.</p>
+
+<!-- JavaScript Strategy -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dobInput = document.getElementById('dob');
+    const doneBtn = document.getElementById('done-btn');
+    const errorMsg = document.getElementById('age-error');
+
+    // Stop script execution if elements aren't matching your IDs
+    if (!dobInput || !doneBtn || !errorMsg) return;
+
+    dobInput.addEventListener('input', function () {
+      if (!this.value) {
+        doneBtn.disabled = true;
+        errorMsg.style.display = 'none';
+        return;
+      }
+
+      const birthDate = new Date(this.value);
+      const today = new Date();
+
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      if (age < 9) {
+        doneBtn.disabled = true;
+        errorMsg.style.display = 'block';
+      } else {
+        doneBtn.disabled = false;
+        errorMsg.style.display = 'none';
+      }
+    });
+  });
+</script>
