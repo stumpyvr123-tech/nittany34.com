@@ -1,122 +1,124 @@
 <style>
-      .button-link {
-        color: rgb(255, 255, 255);
-        background-color: rgb(85, 85, 212);
-        margin-left: 2px;
-        font-family: Arial;
-        padding: 10px;
-        transition: 310ms;
-        border-radius: 13px;
-        text-decoration: none;
-        margin-top: 4px;
-       
-       display: flex;
-   
-        
-      }
+  .button-link {
+    color: rgb(255, 255, 255);
+    background-color: rgb(85, 85, 212);
+    margin-left: 2px;
+    font-family: Arial;
+    padding: 10px;
+    transition: 310ms;
+    border-radius: 13px;
+    text-decoration: none;
+    margin-top: 4px;
 
-      .popover {
-        display: none;
-  position: fixed;
-  top: 0;
-  left: 0;  
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);  
-  z-index: 9999;
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-  
-    }
+    display: flex;
 
-   
+
+  }
+
+  .popover {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
 
 
 
-      hover-box:hover {
-          color: rgb(255, 255, 255);
-        background-color: rgb(85, 85, 212);
-        margin-left: 2px;
-        font-family: Arial;
-        padding: 10px;
-        transition: 310ms;
-        border-radius: 13px;
-        text-decoration: none;
-        margin-top: 70px;
-        display: block;
-      }
-      
-      
-   
-.hidden-text {
-  display: none;
-}
 
 
-.hover-box:hover .hidden-text {
-  display: block;
-}
+  hover-box:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(85, 85, 212);
+    margin-left: 2px;
+    font-family: Arial;
+    padding: 10px;
+    transition: 310ms;
+    border-radius: 13px;
+    text-decoration: none;
+    margin-top: 70px;
+    display: block;
+  }
 
 
-        .hover-container:hover .hidden-element {
-     display: block;
-      }
 
-      .titleimg {
-        width: 250px;
-        height: 100px;
-        display: contain;
-        margin-right: 15px;
-        padding-right: 15px;
-      }
+  .hidden-text {
+    display: none;
+  }
 
-      .button-link:hover {
-        color: rgb(255, 255, 255);
-        background-color: rgb(242, 0, 255);
-        margin-left: 2px;
-        font-family: Arial;
-        padding: 10px;
-        size: 40px;
-        font-size: 25px;
-        text-shadow: 20px;
-        
-      }
 
-      .comic-relief-regular {
-        font-family: "Comic Relief", system-ui;
-        font-weight: 400;
-        font-style: normal;
-      }
+  .hover-box:hover .hidden-text {
+    display: block;
+  }
 
-      .comic-relief-bold {
-        font-family: "Comic Relief", system-ui;
-        font-weight: 700;
-        font-style: normal;
-      }
-    </style>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+  .hover-container:hover .hidden-element {
+    display: block;
+  }
 
-    <h1 style="font-family: Comic Relief, system-ui;">Wall of fame!</h1>
-    
-       <h1 style="font-family: Comic Relief, system-ui;" > Website 1 <a class="button-link" href="https://mopped.store">Mopped.store (Yike's/Xander's Website)</a></h1>
-           <h1 style="font-family: Comic Relief, system-ui;" > Website 2 <a class="button-link"  href="https://gdcolon.com">GDcolon.com (Craig's/GDcolon or cologne)</a> </h1>
+  .titleimg {
+    width: 250px;
+    height: 100px;
+    display: contain;
+    margin-right: 15px;
+    padding-right: 15px;
+  }
+
+  .button-link:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(242, 0, 255);
+    margin-left: 2px;
+    font-family: Arial;
+    padding: 10px;
+    size: 40px;
+    font-size: 25px;
+    text-shadow: 20px;
+
+  }
+
+  .comic-relief-regular {
+    font-family: "Comic Relief", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .comic-relief-bold {
+    font-family: "Comic Relief", system-ui;
+    font-weight: 700;
+    font-style: normal;
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+
+<h1 style="font-family: Comic Relief, system-ui;">Wall of fame!</h1>
+
+<h1 style="font-family: Comic Relief, system-ui;"> Website 1 <a class="button-link"
+    href="https://mopped.store">Mopped.store (Yike's/Xander's Website)</a></h1>
+<h1 style="font-family: Comic Relief, system-ui;"> Website 2 <a class="button-link"
+    href="https://gdcolon.com">GDcolon.com (Craig's/GDcolon or cologne)</a> </h1>
 
 <style>
-              body {
-        background-image: url('images/background.png');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        min-height: 100vh;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-       
-      }
-    </style>
+  body {
+    background-image: url('images/usa.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+  }
+</style>
 </head>

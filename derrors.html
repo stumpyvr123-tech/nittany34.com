@@ -1,18 +1,18 @@
 <style>
-        body {
-            background-image: url("images/PAGE NOT FOUND.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            min-height: 100vh;
-            margin: 0;
-        }
-    </style>
+    body {
+        background-image: url("images/usa.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
+        margin: 0;
+    }
+</style>
 
 
 <div style="border: 2px solid #555; border-radius: 4px; padding: 10px; background: #222; max-width: 500px;">
-  <pre style="color: #ffffff; font-family: monospace; margin: 0; white-space: pre-wrap;">
+    <pre style="color: #ffffff; font-family: monospace; margin: 0; white-space: pre-wrap;">
 <div style="border: 2px solid #555; border-radius: 4px; padding: 10px; background: #222; max-width: 500px;">
  <pre style="color: #ffffff; font-family: monospace; margin: 0; white-space: pre-wrap;">
 <strong>At this current time (<time id="log-time" style="font-weight: bold;"></time>): a page error has occured.
@@ -22,20 +22,15 @@
 
 <!-- Inline script right under the element to inject and update the clock -->
 <script>
-    (function() {
+    (function () {
         const timeEl = document.getElementById('log-time');
+
         function update() {
-            timeEl.textContent = new Date().toLocaleTimeString([], { hour12: false });
+            timeEl.textContent = new Date().toLocaleTimeString([], {
+                hour12: false
+            });
         }
         update();
         setInterval(update, 1000);
     })();
 </script>
-
-
-
-
-
-
-
-    
