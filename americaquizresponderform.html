@@ -90,7 +90,7 @@
     <h1>Question 2</h1>
     <p>What holiday is celebrated on July 4th in the United States?</p>
 
-    <input type="checkbox"> <p>4th of July</p>
+    <input id="correct3" type="checkbox"> <p>4th of July</p>
 <input id="correct2" type="checkbox"> <p>Independence Day</p>
 <input type="checkbox"> <p>Military</p>
 <input type="checkbox"> <p>Labor Day</p>
@@ -106,6 +106,7 @@
       </dialog>`
     );
     document.getElementById('correct2').addEventListener('change', e => e.target.checked && document.getElementById('pop').showModal());
+     document.getElementById('correct3').addEventListener('change', e => e.target.checked && document.getElementById('pop').showModal());
     document.getElementById('closePopup').addEventListener('click', () => { document.getElementById('pop').close(); document.getElementById('correct1').checked = false; });
   });
 </script>
