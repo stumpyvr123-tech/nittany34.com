@@ -24,8 +24,9 @@
     ensure you are over the age of 9 years.</h1>
 
 
-  <dialog  open style="position: fixed; inset: 0; margin: auto; width: 300px; height: fit-content; text-align: center; background-color: red; color: rgb(0, 0, 255); stroke: rgba(0, 0, 255, 0.479); stroke-width: 10px; outline: 5px; outline-color: blue; font-family: Comic Relief; border-radius: 30px; border-width: 20px;  ">
+  <dialog class="keyframe"  open style="position: fixed; inset: 0; margin: auto; width: 300px; height: fit-content; text-align: center; background-color: red; color: rgb(0, 0, 255); stroke: rgba(0, 0, 255, 0.479); stroke-width: 10px; outline: 5px; outline-color: blue; font-family: Comic Relief; border-radius: 30px; border-width: 20px;  ">
   <p>Happy 4th of July!</p>
+  <a class="welcomer" href="americaquizresponderform.html">Take the quiz</a>
   <form method="dialog">
     <button class="usa">Ok!</button>
   </form>
@@ -200,6 +201,22 @@
       justify-content: top;
       font-size: 20px;
     }
+
+    .keyframe {
+      align-items: center; 
+
+    
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+        transition: 300ms;
+      }
+      
+    }
+
+    
 
       .usa:hover {
         background-color: red;
