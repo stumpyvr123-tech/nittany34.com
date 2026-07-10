@@ -27,17 +27,21 @@
   </h1>
 
 
-  <dialog class="keyframe" open
-    style="position: fixed; inset: 0; margin: auto; width: 300px; height: fit-content; text-align: center; background-color: red; color: rgb(0, 0, 255); stroke: rgba(0, 0, 255, 0.479); stroke-width: 10px; outline: 5px; outline-color: blue; font-family: Comic Relief; border-radius: 30px; border-width: 20px;  ">
-    <h1>I hope you had a nice 4th of July!</h1>
-    <p>Patch Notes: New <a href="termsofservice.html" class="link">Terms of Service!</a></p>
-    <p>New accessibility features: We now use Sienna to make navigating easier. These contain accessibility features.
-    </p>
+  <dialog id="patchPopup" class="keyframe" open
+    style="position: fixed; inset: 0; margin: auto; width: 300px; height: fit-content; text-align: center; background-color: rgb(200, 0, 255); color: rgb(255, 255, 255); stroke: rgba(0, 0, 255, 0.479); stroke-width: 2px; outline: 2px; outline-color: blue; font-family: Comic Relief; border-radius: 2px; border-width: 2px; cursor: move;">
 
-    <form method="dialog">
-      <button class="usa">Ok!</button>
-      <a style="text-decoration: none;" href="termsofservice.html" class="usa">Read Terms of Service</a>
+    <form method="dialog" style="display: flex; justify-content: flex-start; margin: 0;">
+      <button style="text-align: left;" class="usa">X</button>
+
     </form>
+
+    <h1>Patch Notes</h1>
+    <p>Patch Notes: New <a href="termsofservice.html" class="link">Terms of Service!</a></p>
+
+
+
+
+
   </dialog>
 
 
@@ -511,6 +515,34 @@
 
     </details>
 
+    <script>
+      const patchPopup = document.getElementById('patchPopup');
+      if (patchPopup) {
+        let dragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        patchPopup.addEventListener('mousedown', (e) => {
+          if (e.target.tagName === 'BUTTON' || e.target.closest('form')) return;
+          dragging = true;
+          offsetX = e.clientX - patchPopup.offsetLeft;
+          offsetY = e.clientY - patchPopup.offsetTop;
+          patchPopup.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+          if (!dragging) return;
+          patchPopup.style.left = `${e.clientX - offsetX}px`;
+          patchPopup.style.top = `${e.clientY - offsetY}px`;
+          patchPopup.style.margin = '0';
+        });
+
+        document.addEventListener('mouseup', () => {
+          dragging = false;
+          patchPopup.style.cursor = 'move';
+        });
+      }
+    </script>
 
 
 
