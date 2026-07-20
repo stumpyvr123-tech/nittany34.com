@@ -538,7 +538,22 @@
 
     <style>
       .ani {
-        animation: bounce 1s infinite;
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        animation: simpleBounce 0.8s ease-in-out infinite alternate;
+        will-change: transform;
+        text-align: center;
+      }
+
+      @keyframes simpleBounce {
+        from {
+          transform: translateY(0);
+        }
+
+        to {
+          transform: translateY(8px);
+        }
       }
     </style>
 
