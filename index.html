@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+  <title>Nittany34.com</title>
+
+  <link rel="icon" type="image/png" href="images/pgicn.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+
+  <h1 class="welcometoserver">
+    Please Read the Terms of Service <a href="termsofservice.html" class="link">here.</a>
+  </h1>
+
+
+  <dialog id="patchPopup" class="keyframe" open
+    style="position: fixed; inset: 0; margin: auto; width: 300px; height: fit-content; text-align: center; background-color: rgb(200, 0, 255); color: rgb(255, 255, 255); stroke: rgba(0, 0, 255, 0.479); stroke-width: 2px; outline: 2px; outline-color: blue; font-family: Comic Relief; border-radius: 2px; border-width: 2px; cursor: move;">
+
+    <form method="dialog" style="display: flex; justify-content: flex-start; margin: 0;">
+      <button style="text-align: left; border:none;" class="button-link">X</button>
+
+    </form>
+
+    <h1>Patch Notes</h1>
+    <p>UI redo taking effect soon! (note: its not that big!!)</p>
+
+
+
+
+
+
+  </dialog>
+
+
+
+
+
+  <style>
+    .button-link {
+      color: rgb(255, 255, 255);
+      background-color: rgb(85, 85, 212);
+      margin-left: 2px;
+      font-family: Arial;
+      padding: 10px;
+      transition: 310ms;
+      border-radius: 13px;
+      margin-top: 4px;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+
+
+    }
+
+    body {
+      color: white;
+      font-family: Comic Relief;
+    }
+
+    .popover {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+
+
+
+
+    hover-box:hover {
+      color: rgb(255, 255, 255);
+      background-color: rgb(85, 85, 212);
+      margin-left: 2px;
+      font-family: Arial;
+      padding: 10px;
+      transition: 310ms;
+      border-radius: 13px;
+      text-decoration: none;
+      margin-top: 70px;
+      display: block;
+    }
+
+
+
+    .hidden-text {
+      display: none;
+    }
+
+
+    .hover-box:hover .hidden-text {
+      display: block;
+    }
+
+
+    .hover-container:hover .hidden-element {
+      display: block;
+    }
+
+    .titleimg {
+      width: 250px;
+      height: 100px;
+      display: contain;
+      margin-right: 15px;
+      padding-right: 15px;
+    }
+
+    .button-link:hover {
+      color: rgb(255, 255, 255);
+      background-color: rgb(242, 0, 255);
+      margin-left: 2px;
+      font-family: Arial;
+      padding: 15px;
+      size: 40px;
+      font-size: 26px;
+      text-shadow: 20px;
+
+    }
+
+    .comic-relief-regular {
+      font-family: "Comic Relief", system-ui;
+      font-weight: 400;
+      font-style: normal;
+      margin-left: 500px;
+    }
+
+    .comic-relief-bold {
+      font-family: "Comic Relief", system-ui;
+      font-weight: 700;
+      font-style: normal;
+
+    }
+
+    .button-linksmall:hover {
+      color: rgb(255, 255, 255);
+      background-color: rgb(242, 0, 255);
+      margin-left: 2px;
+      font-family: Arial;
+      padding: 10px;
+      size: 40px;
+      font-size: 15px;
+      text-shadow: 20px;
+      cursor: pointer;
+    }
+  </style>
+
+  <style>
+  </style>
+
+  <style>
+    body {
+      background-image: url('images/background.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      margin-left: 3px;
+      margin-bottom: 500px;
+
+    }
+
+    .welcomer {
+      color: white;
+      font-family: Comic Relief;
+      transition: 50ms;
+    }
+
+
+    .welcomer:hover {
+      color: white;
+      font-family: Comic Relief;
+      font-size: 48px;
+    }
+  </style>
+  <div>
+    <style>
+
+
+
+
+    </style>
+  </div>
+
+
+
+
+  <style>
+    .welcometoserver {
+      color: white;
+      font-family: Comic Relief;
+      justify-content: center;
+      align-items: center;
+      animation: fadeOut 1s ease-in-out 1s forwards;
+
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .welcomer {
+      transition: 1000ms;
+      opacity: 1;
+      max-height: 200px;
+      margin-bottom: 15px;
+      padding: 10px;
+      align-content: top;
+      align-items: top;
+      justify-items: top;
+      justify-content: top;
+      font-size: 20px;
+    }
+
+    .keyframe {
+      align-items: center;
+
+
+
+    }
+
+
+    @keyframes fadeOut {
+      100% {
+        opacity: 0;
+        transition: 1000ms;
+      }
+
+    }
+
+
+
+
+
+
+
+    .usa:hover {
+      background-color: red;
+      color: blue;
+    }
+
+
+
+    /* The container wrapping your welcome text */
+    .welcometoserver {
+      display: block;
+      overflow: hidden;
+      /* Necessary to hide text as the height shrinks */
+      max-height: 150px;
+      /* Adjust to fit your actual welcome content height */
+
+      /* Fires the animation immediately on page load */
+      animation: fadeAndCollapse 5s ease-in-out forwards;
+    }
+
+    /* Optional styling for the text inside */
+    .welcomer {
+      font-size: 38px;
+      color: white;
+      text-align: center;
+    }
+
+
+    @keyframes fadeAndCollapse {
+      0% {
+        opacity: 1;
+        max-height: 150px;
+        margin-bottom: 20px;
+      }
+
+      70% {
+        opacity: 1;
+        max-height: 150px;
+        margin-bottom: 20px;
+      }
+
+      90% {
+        opacity: 0;
+        max-height: 150px;
+        margin-bottom: 20px;
+      }
+
+      100% {
+        opacity: 0;
+        max-height: 0;
+        margin-bottom: 0;
+        padding: 0;
+        display: none;
+      }
+    }
+
+
+    .usa {
+      background-color: white;
+      color: blue;
+      border-radius: 10px;
+
+    }
+
+
+
+
+
+    @keyframes collapseItem {
+      0% {
+        opacity: 1;
+        max-height: 200px;
+        margin-bottom: 15px;
+        padding: 10px;
+      }
+
+      50% {
+        opacity: 0;
+        max-height: 200px;
+        margin-bottom: 15px;
+        padding: 10px;
+      }
+
+      100% {
+        opacity: 0;
+        max-height: 0;
+        margin-bottom: 0;
+        padding: 0;
+        display: none;
+
+      }
+
+
+
+    }
+  </style>
+  </div>
+</head>
+
+<body>
+
+  <h1 class="welcomer" class="comic-relief-bold">Welcome to nittany34.com! <a href="https://youtube.com/@nittany34yt"
+      class="niftybutton-youtube" aria-label="youtube button"
+      style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgb(255, 255, 255); border-radius: 15%; color: rgb(255, 255, 255); transition: 0.3s; opacity: 1; padding: 12px;"><svg
+        class="niftybutton-youtube" data-donate="true" data-tag="you" data-name="YouTube" viewBox="0 0 512 512"
+        preserveAspectRatio="xMidYMid meet"
+        style="display: block; fill: rgb(255, 38, 0); width: 32px; height: 32px; color: rgb(255, 38, 0);" role="img"
+        aria-label="youtube">
+        <path
+          d="M422.6 193.6c-5.3-45.3-23.3-51.6-59-54 -50.8-3.5-164.3-3.5-215.1 0 -35.7 2.4-53.7 8.7-59 54 -4 33.6-4 91.1 0 124.8 5.3 45.3 23.3 51.6 59 54 50.9 3.5 164.3 3.5 215.1 0 35.7-2.4 53.7-8.7 59-54C426.6 284.8 426.6 227.3 422.6 193.6zM222.2 303.4v-94.6l90.7 47.3L222.2 303.4z"
+          fill="#ff2600" style="fill: rgb(255, 38, 0);"></path>
+      </svg></a></h1>
+
+
+  <a class="button-link" href="aboutme.html">About Me</a>
+  <a class="button-link" class="hover-box" href="https://www.youtube.com/@nittany34yt">My youtube!</a>
+
+  <a href="memepage.html" class="button-link">Memes</a>
+  <a href="https://help.nittany34.com" class="button-link">Need help? (beta)</a>
+  <a href="docs/home.html" class="button-link">Documentation</a>
+  <a href="status.html" class="button-link">Status</a>
+  <a href="docs/infoabout.html" class="button-link">More Info - Presentation</a>
+  <a href="termsofservice.html" class="button-link">Terms of Service</a>
+
+
+
+
+  <style>
+    .buttonlinkex1 {
+      color: rgb(255, 255, 255);
+      background-color: rgb(85, 85, 212);
+      margin-left: 2px;
+      font-family: Arial;
+      padding: 10px;
+      transition: 310ms;
+      border-radius: 13px;
+      text-decoration: none;
+      margin-top: 4px;
+      cursor: pointer;
+      display: flex;
+    }
+
+    .buttonlinkex1:hover {
+      color: rgb(255, 255, 255);
+      background-color: rgb(242, 0, 255);
+      margin-left: 2px;
+      font-family: Arial;
+      padding: 10px;
+      size: 40px;
+      font-size: 25px;
+      text-shadow: 20px;
+    }
+
+    .button-linksmall2x {
+      color: rgb(255, 255, 255);
+      background-color: rgb(85, 85, 212);
+      margin-left: 2px;
+      font-family: Arial;
+      padding: 10px;
+      transition: 310ms;
+      border-radius: 13px;
+      text-decoration: none;
+      margin-top: 4px;
+      cursor: pointer;
+      display: flex;
+      font-size: 8px;
+      size: 2px;
+    }
+
+    .button-linksmall2x:hover {
+      color: rgb(255, 255, 255);
+      background-color: rgb(242, 0, 255);
+      margin-left: 2px;
+      font-family: Arial;
+      padding: 10px;
+      size: 40px;
+      font-size: 15px;
+      text-shadow: 20px;
+    }
+
+    .link {
+      color: lightblue;
+
+    }
+
+    .link:hover {
+      color: blue;
+    }
+  </style>
+  <style>
+    .downarrow {
+      font-size: 20px;
+    }
+  </style>
+  </head>
+
+  <body>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCeziAYCBk-eSgWDMAz4_VzN_nggIwlrq0",
+    authDomain: "nittany34-com.firebaseapp.com",
+    projectId: "nittany34-com",
+    storageBucket: "nittany34-com.firebasestorage.app",
+    messagingSenderId: "611400215653",
+    appId: "1:611400215653:web:1abbb58f98490b850c2a8c",
+    measurementId: "G-QB6WWS98PE"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <details>
+      <summary class="buttonlinkex1">Extras <span class="downarrow">▼</span> </summary>
+      <h2 style="color: white;" class="comic-relief-bold"> NOTE: THESE PAGES ARE VERY RUSTY AND/OR INCOMPLETE!</h2>
+
+      <a class="button-linksmall"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSd_cLiXhMg_vE-S9K6djyDQ1pQiCvgn1YVTNAfMvdEliClWug/viewform?usp=header">Feedback</a>
+      <a class="button-linksmall"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScOKj2PiYujdJfhYv_RB3BJGnsrca1C5vhO4k3WlXM9lYVZcg/viewform?usp=header">Submit
+        your own meme!</a>
+      <a class="button-linksmall" href="wof.html"> Wall of fame! </a>
+      <a class="button-linksmall" href="req.html"> Request Extra Data (incomplete)</a>
+      <details>
+        <summary class="button-linksmall">Pages that are not shown normally<span class="downarrow">▼</span></summary>
+        <a class="button-linksmall2x" U+2193 href="404.html">404 page.</a>
+
+      </details>
+
+    </details>
+
+    <h1 class="ani" style="text-align: center;">⬇️Scroll⬇️ </h1>
+
+    <style>
+      .ani {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        animation: simpleBounce 0.8s ease-in-out infinite alternate;
+        will-change: transform;
+        text-align: center;
+      }
+
+      @keyframes simpleBounce {
+        from {
+          transform: translateY(0);
+        }
+
+        to {
+          transform: translateY(8px);
+        }
+      }
+    </style>
+
+    <script>
+      const patchPopup = document.getElementById('patchPopup');
+      if (patchPopup) {
+        let dragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        patchPopup.addEventListener('mousedown', (e) => {
+          if (e.target.tagName === 'BUTTON' || e.target.closest('form')) return;
+          dragging = true;
+          offsetX = e.clientX - patchPopup.offsetLeft;
+          offsetY = e.clientY - patchPopup.offsetTop;
+          patchPopup.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+          if (!dragging) return;
+          patchPopup.style.left = `${e.clientX - offsetX}px`;
+          patchPopup.style.top = `${e.clientY - offsetY}px`;
+          patchPopup.style.margin = '0';
+        });
+
+        document.addEventListener('mouseup', () => {
+          dragging = false;
+          patchPopup.style.cursor = 'move';
+        });
+      }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+      .options {
+        cursor: pointer;
+        margin-top: 30px;
+        font-size: 30px;
+
+      }
+
+      .button-linksmall {
+        font-size: 10px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(85, 85, 212);
+        margin-left: 2px;
+        font-family: Arial;
+        padding: 10px;
+        transition: 310ms;
+        border-radius: 13px;
+        text-decoration: none;
+        margin-top: 4px;
+
+        display: flex;
+      }
+
+      .options:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        text-decoration-color: aqua;
+      }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility/dist/sienna-accessibility.umd.js" async></script>
+
+    <style>
+      .bot {
+        color: white;
+        font-family: Comic Relief;
+        margin-top: 375px;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .botmre {
+        color: white;
+        font-family: Comic Relief;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+    </style>
+
+
+    <h1 class="bot">Who is nittany34?</h1>
+
+    <p class="botmre">Nittany34 is an american english youtuber. Video style is usually like
+      the youtuber @yikes. also a glazer of @yikes. Nittany34 is also a developer of the website nittany34.com
+      (obviously!) and loves coding!
+      It may sound like im not writing this, but i am. I am writing this, and i am a human. I am not a bot (what did u
+      think i was?) and i am a human. I am not a bot. I am a human. I am not a bot. I am a human. I am not a bot. I am a
+      human. I am not a bot. I am a human. I am not a bot. I am a human. I am not a bot. I am a human. I am not a bot. I
+      am a human. I am not a bot. I am a human. I am not a bot. I am a human. I am not a bot. I am a human. I am not a
+      bot. I am a human. I am not a bot. I am a human.
+    </p>
+
+    <h1>Latest Videos!</h1>
+
+    <a class="welcomer" style="font-family: Comic Relief;" href="https://youtu.be/gvBlh56r5Mk?si=_OYxLABB5c06rBuT"
+      class="vid"> <img src="images/hqdefault.jpg" alt="Video 1" class="vidimg"> </a>
+    <p>Rickroll but it's my voice!</p>
+
+  </body>
+
+</html>
